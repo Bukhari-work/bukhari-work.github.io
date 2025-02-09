@@ -23,13 +23,13 @@
   },
 
   "params": {
-    "contact_form_action": "#",
+    "contact_form_action": "http://localhost:3000/contact",
     "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
   },
 
   "navigation_button": {
     "enable": true,
-    "label": "Get Started",
+    "label": "Hire Me! :D",
     "link": "https://github.com/zeon-studio/astroplate"
   },
 

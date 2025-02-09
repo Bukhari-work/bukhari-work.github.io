@@ -21,17 +21,17 @@ interface Homepage {
 
 const homepage = (await getEntry(
   "homepage",
-  "-index"
+  "-index",
 )) as CollectionEntry<"homepage">;
 
 const testimonial = (await getEntry(
   "testimonialSection",
-  "testimonial"
+  "testimonial",
 )) as CollectionEntry<"testimonialSection">;
 
 const call_to_action = (await getEntry(
   "ctaSection",
-  "call-to-action"
+  "call-to-action",
 )) as CollectionEntry<"ctaSection">;
 
 const { banner, features } = homepage.data as Homepage;
@@ -51,7 +51,7 @@ const { banner, features } = homepage.data as Homepage;
           {
             banner.button.enable && (
               <a
-                class="btn btn-primary"
+                class="btn btn-outline-primary"
                 href={banner.button.link}
                 target={
                   banner.button.link.startsWith("http") ? "_blank" : "_self"
