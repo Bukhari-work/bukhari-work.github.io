@@ -13,8 +13,8 @@ import sharp from "sharp";
 export default defineConfig({
   site: config.site.base_url
     ? config.site.base_url
-    : "https://bukhari-work.github.io",
-  base: config.site.base_path ? config.site.base_path : "portfolio",
+    : "https://bukhari-work.github.io/portfolio",
+  base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: {
     service: sharp(),
