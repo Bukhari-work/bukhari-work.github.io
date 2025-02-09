@@ -4,7 +4,10 @@ const matter = require("gray-matter");
 
 const CONTENT_DEPTH = 2;
 const JSON_FOLDER = "./.json";
+
+// Define your directories
 const BLOG_FOLDER = "src/content/blog";
+const AUTHORS_FOLDER = "src/content/authors";
 
 // get data from markdown
 const getData = (folder, groupDepth) => {
@@ -53,16 +56,18 @@ try {
     fs.mkdirSync(JSON_FOLDER);
   }
 
-  // create json files
-  fs.writeFileSync(
-    `${JSON_FOLDER}/posts.json`,
-    JSON.stringify(getData(BLOG_FOLDER, 2)),
-  );
+  // Get data from each directory
+  const blogData = getData(BLOG_FOLDER, 2);
+  const authorsData = getData(AUTHORS_FOLDER, 2);
 
-  // merger json files for search
-  const posts = require(`../${JSON_FOLDER}/posts.json`);
-  const search = [...posts];
-  fs.writeFileSync(`${JSON_FOLDER}/search.json`, JSON.stringify(search));
+  // Merge all data into one array
+  const combinedData = [...blogData, ...authorsData];
+
+  // Write combined data to posts.json
+  fs.writeFileSync(`${JSON_FOLDER}/posts.json`, JSON.stringify(combinedData));
+
+  // Use the combined data for the search index
+  fs.writeFileSync(`${JSON_FOLDER}/search.json`, JSON.stringify(combinedData));
 } catch (err) {
   console.error(err);
 }
