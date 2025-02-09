@@ -47,7 +47,7 @@ export default defineConfig({
       ],
     ],
     shikiConfig: {
-      theme: "one-dark-pro",
+      theme: "kanagawa-dragon",
       wrap: true,
     },
     extendDefaultPlugins: true,
