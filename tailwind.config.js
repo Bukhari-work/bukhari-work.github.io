@@ -20,7 +20,15 @@ if (theme.fonts.font_family.secondary) {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  safelist: [{ pattern: /^swiper-/ }],
+  safelist: [
+    "swiper",
+    "swiper-slide",
+    "swiper-wrapper",
+    "swiper-pagination",
+    "swiper-button-next",
+    "swiper-button-prev",
+    "swiper-scrollbar",
+  ],
   darkMode: "class",
   theme: {
     screens: {
