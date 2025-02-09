@@ -14,8 +14,8 @@ export default defineConfig({
   output: "static",
   site: config.site.base_url
     ? config.site.base_url
-    : "https://bukhari-work.github.io",
-  base: "/portfolio/",
+    : "https://bukhari-work.github.io/portflio",
+  base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: {
     service: sharp(),
