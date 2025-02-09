@@ -158,6 +158,7 @@ const SearchResult = ({
                       >
                         {matchUnderline(item.frontmatter.title, searchString)}
                       </a>
+                      {/*
                       {item.frontmatter.description && (
                         <p className="search-result-item-description">
                           {matchUnderline(
@@ -165,7 +166,8 @@ const SearchResult = ({
                             searchString,
                           )}
                         </p>
-                      )}
+                      )}{" "}
+                      */}
                       {item.content && (
                         <p className="search-result-item-content">
                           {matchContent(item.content, searchString)}
