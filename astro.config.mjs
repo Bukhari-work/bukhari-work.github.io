@@ -22,7 +22,7 @@ export default defineConfig({
     react(),
     sitemap(),
     tailwind({
-      applyBaseStyles: false,
+      applyBaseStyles: true,
     }),
     AutoImport({
       imports: [
