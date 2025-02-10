@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Astroplate",
-    "base_url": "https://bukhari-work.github.io/portfolio",
+    "base_url": "https://test.com",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
