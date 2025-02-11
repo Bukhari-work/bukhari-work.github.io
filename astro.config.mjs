@@ -16,7 +16,7 @@ export default defineConfig({
     ? config.site.base_url
     : "http://bukhari-work.github.io",
   base: config.site.base_path ? config.site.base_path : "/",
-  trailingSlash: config.site.trailing_slash ? "always" : "never",
+  trailingSlash: "never",
   image: {
     service: sharp(),
   },
