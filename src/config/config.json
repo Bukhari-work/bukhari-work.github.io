@@ -2,7 +2,7 @@
   "site": {
     "title": "Astroplate",
     "base_url": "https://bukhari-work.github.io",
-    "base_path": "/porfolio",
+    "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
     "logo": "/images/logo.png",
@@ -34,8 +34,8 @@
   },
 
   "disqus": {
-    "enable": true,
-    "shortname": "themefisher-template",
+    "enable": false,
+    "shortname": "",
     "settings": {}
   },
 
