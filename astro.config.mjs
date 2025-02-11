@@ -12,9 +12,11 @@ import sharp from "sharp";
 // https://astro.build/config
 export default defineConfig({
   output: "static",
-  site: "https://bukhari-work.github.io",
-  base: "/portfolio",
-  trailingSlash: "never",
+  site: config.site.base_url
+    ? config.site.base_url
+    : "http://bukhari-work.github.io",
+  base: config.site.base_path ? config.site.base_path : "/",
+  trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: {
     service: sharp(),
   },
@@ -22,7 +24,7 @@ export default defineConfig({
     react(),
     sitemap(),
     tailwind({
-      applyBaseStyles: true,
+      applyBaseStyles: false,
     }),
     AutoImport({
       imports: [
