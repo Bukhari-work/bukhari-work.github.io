@@ -26,7 +26,7 @@ const languages = ["Excel", "SQL", "Python", "Git", "Looker", "Tableau"];
       <!-- Use grid to divide the profile and content into two columns -->
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
         <!-- Profile Section Container -->
-        <div class="lg:col-span-2">
+        <div class="lg:col-span-2 mb-6">
           <!-- Wrap the profile content in a sticky container -->
           <div
             class="lg:sticky lg:top-[125px] flex flex-col items-center space-y-4"
@@ -34,7 +34,7 @@ const languages = ["Excel", "SQL", "Python", "Git", "Looker", "Tableau"];
             {
               image && (
                 <ImageMod
-                  class="mb-6 rounded-lg"
+                  class="mb-2 rounded-lg"
                   src={image}
                   width={200}
                   height={200}
