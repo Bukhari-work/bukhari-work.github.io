@@ -1,5 +1,7 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
+import Location from "@/layouts/shortcodes/Location";
+import Languages from "@/layouts/shortcodes/Languages";
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import type { CollectionEntry } from "astro:content";
@@ -8,6 +10,9 @@ import { getEntry, render } from "astro:content";
 const about = (await getEntry("about", "-index")) as CollectionEntry<"about">;
 const { Content } = await render(about);
 const { title, description, meta_title, image } = about.data;
+
+const location = "Jakarta, Indonesia";
+const languages = ["Excel", "SQL", "Python", "Git"];
 ---
 
 <Base
@@ -17,13 +22,15 @@ const { title, description, meta_title, image } = about.data;
   image={image}
 >
   <section class="section-sm">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="text-center md:col-10 lg:col-7">
+    <div class="container mx-auto">
+      <!-- Use grid to divide the profile and content into two columns -->
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <!-- Profile Section Container -->
+        <div class="flex flex-col items-center space-y-4 lg:col-span-2">
           {
             image && (
               <ImageMod
-                class="mx-auto mb-6 rounded-lg"
+                class="mb-6 rounded-lg"
                 src={image}
                 width={200}
                 height={200}
@@ -32,11 +39,19 @@ const { title, description, meta_title, image } = about.data;
               />
             )
           }
-          <h2 set:html={markdownify(title)} class="h3 mb-6" />
+          <div class="flex flex-col items-center space-y-2 mb-8">
+            <Location location={location} />
+            <Languages languages={languages} />
+          </div>
+        </div>
+
+        <!-- Content Section Container -->
+        <div class="lg:col-span-3">
+          <h2 set:html={markdownify(title)} class="h3 mb-4" />
           <div class="content">
             <Content />
           </div>
-        </div>
+        </div>c
       </div>
     </div>
   </section>
