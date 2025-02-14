@@ -24,7 +24,8 @@
 
   "params": {
     "contact_form_action": "http://localhost:3000/contact",
-    "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
+    "copyright": "©2025 Ahmad Bukhari. All rights reserved.",
+    "credit": "Made with [Astro](https://astro.build) using [Astroplate](https://github.com/zeon-studio/astroplate) template"
   },
 
   "navigation_button": {
