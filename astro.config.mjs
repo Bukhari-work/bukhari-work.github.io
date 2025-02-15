@@ -29,6 +29,7 @@ export default defineConfig({
     AutoImport({
       imports: [
         "@/shortcodes/Button",
+        "@/shortcodes/DownloadButton",
         "@/shortcodes/Accordion",
         "@/shortcodes/Notice",
         "@/shortcodes/Video",
