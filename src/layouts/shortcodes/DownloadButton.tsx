@@ -26,7 +26,7 @@ const DownloadButton = ({
     case "pdf":
       IconComponent = FaFilePdf;
       break;
-    case "doc":
+    case "word":
     case "doc":
     case "docx":
       IconComponent = FaFileWord;

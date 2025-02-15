@@ -9,22 +9,14 @@
       "url": "/about"
     },
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Project",
+      "url": "/project"
     },
     {
-      "name": "Pages",
-      "url": "",
-      "hasChildren": true,
+      "name": "Blog",
+      "url": "/blog",
+      "hasChildren": false,
       "children": [
-        {
-          "name": "Contact",
-          "url": "/contact"
-        },
-        {
-          "name": "Blog",
-          "url": "/blog"
-        },
         {
           "name": "Authors",
           "url": "/authors"
@@ -36,10 +28,6 @@
         {
           "name": "Tags",
           "url": "/tags"
-        },
-        {
-          "name": "404 Page",
-          "url": "/404"
         }
       ]
     }
@@ -52,6 +40,10 @@
     {
       "name": "Privacy Policy",
       "url": "/privacy-policy"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
     }
   ]
 }

@@ -89,6 +89,7 @@ const SearchModal = () => {
 
     document.addEventListener("keydown", function (event) {
       if ((event.metaKey || event.ctrlKey) && event.key === "k") {
+        event.preventDefault();
         searchModal!.classList.add("show");
         searchInput!.focus();
         updateSelection();
