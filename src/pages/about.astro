@@ -24,21 +24,21 @@ const languages = ["Excel", "SQL", "Python", "Git", "Looker", "Tableau"];
   <section class="section-sm">
     <div class="container mx-auto">
       <!-- Use grid to divide the profile and content into two columns -->
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <!-- Profile Section Container -->
-        <div class="lg:col-span-2 mb-6">
+        <div class="lg:col-span-5 mb-6">
           <!-- Wrap the profile content in a sticky container -->
           <div
             class="lg:sticky lg:top-[125px] flex flex-col items-center space-y-4"
           >
             {
               image && (
-                <div class="mb-2 rounded-lg w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] overflow-hidden">
+                <div class="mb-2 rounded-lg w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] overflow-hidden">
                   <ImageMod
                     class="object-cover w-full h-full"
                     src={image}
-                    width={300}
-                    height={300}
+                    width={350}
+                    height={350}
                     alt={title}
                     format="webp"
                   />
@@ -53,7 +53,7 @@ const languages = ["Excel", "SQL", "Python", "Git", "Looker", "Tableau"];
         </div>
 
         <!-- Content Section Container -->
-        <div class="lg:col-span-3">
+        <div class="lg:col-span-6">
           <h2 set:html={markdownify(title)} class="h3 mb-4" />
           <div class="content">
             <Content />
