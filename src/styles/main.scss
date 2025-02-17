@@ -12,6 +12,7 @@
   @include meta.load-css("navigation");
   @include meta.load-css("buttons");
   @include meta.load-css("search");
+  @include meta.load-css("cards");
 }
 
 @layer utilities {

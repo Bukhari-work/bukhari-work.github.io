@@ -1,0 +1,72 @@
+---
+import config from "@/config/config.json";
+import dateFormat from "@/lib/utils/dateFormat";
+import { humanize, slugify } from "@/lib/utils/textConverter";
+import { FaRegFolder, FaRegCalendar } from "react-icons/fa";
+import ImageMod from "@/components/ImageMod.astro";
+
+const {
+  summary_length,
+  project_folder,
+}: { summary_length: number; project_folder: string } = config.settings;
+
+const { data } = Astro.props;
+const { title, image, client, technologies, date, status } = data.data;
+---
+
+<article class="card hover:shadow-white hover:dark:shadow-dark transition-all">
+  <a href={`/${project_folder}/${data.id}`} class="block h-full">
+    {
+      image && (
+        <ImageMod
+          src={image}
+          alt={title}
+          width={600}
+          height={1200}
+          format="webp"
+          class="rounded-t-lg w-full h-48 object-cover"
+        />
+      )
+    }
+    <div class="p-6">
+      {
+        status && (
+          <span
+            class="status-badge inline-block px-3 py-1 text-sm
+          font-semibold mb-2 bg-primary dark:bg-darkmode-primary text-white dark:text-dark rounded-full"
+          >
+            {status}
+          </span>
+        )
+      }
+      <h3 class="h4 mb-2">{title}</h3>
+
+      <div class="project-meta mb-3 text-sm text-dark dark:text-darkmode-dark">
+        {
+          client && (
+            <p class="mb-1">
+              <span class="font-medium">Client:</span> {humanize(client)}
+            </p>
+          )
+        }
+        <p class="flex items-center gap-2">
+          <FaRegCalendar className="inline-block" />
+          {dateFormat(date)}
+        </p>
+      </div>
+
+      {
+        technologies?.length > 0 && (
+          <div class="technologies flex flex-wrap gap-2">
+            {technologies.map((tech: string) => (
+              <span class="btn btn-primary inline-flex items-center gap-1 px-3 py-1 ">
+                <FaRegFolder className="text-xs" />
+                {humanize(tech)}
+              </span>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </a>
+</article>

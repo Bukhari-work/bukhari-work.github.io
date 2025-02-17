@@ -1,0 +1,18 @@
+.card {
+  @apply rounded-lg overflow-hidden
+  shadow-lg shadow-border dark:shadow-darkmode-border
+  bg-body dark:bg-darkmode-body
+  border border-border dark:border-darkmode-border
+
+  transition-transform duration-300 ease-in-out;
+  &:hover {
+    transform: scale(1.05) translateY(-2px);
+  }
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

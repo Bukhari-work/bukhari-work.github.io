@@ -1,7 +1,7 @@
 import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
-// Post collection schema
+// Blog collection schema
 const blogCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/blog" }),
   schema: z.object({
@@ -14,6 +14,25 @@ const blogCollection = defineCollection({
     categories: z.array(z.string()).default(["others"]),
     tags: z.array(z.string()).default(["others"]),
     draft: z.boolean().optional(),
+  }),
+});
+
+// Project collection schema
+const projectCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/project" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    client: z.string().default("Client"),
+    date: z.date().optional(),
+    image: z.string().optional(),
+    author: z.string().default("Admin"),
+    categories: z.array(z.string()).default(["others"]),
+    tags: z.array(z.string()).default(["others"]),
+    technologies: z.array(z.string()).default(["others"]),
+    draft: z.boolean().optional(),
+    status: z.string().optional(),
   }),
 });
 
@@ -150,12 +169,13 @@ const testimonialSectionCollection = defineCollection({
 // Export collections
 export const collections = {
   // Pages
-  homepage: homepageCollection,
   blog: blogCollection,
+  homepage: homepageCollection,
   authors: authorsCollection,
   pages: pagesCollection,
   about: aboutCollection,
   contact: contactCollection,
+  project: projectCollection,
 
   // sections
   ctaSection: ctaSectionCollection,

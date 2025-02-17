@@ -1,5 +1,5 @@
 ---
-import ProjectCard from "@/components/ProjectCard.astro";
+import BlogCard from "@/components/BlogCard.astro";
 import Pagination from "@/components/Pagination.astro";
 import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
@@ -11,16 +11,36 @@ import { getEntry } from "astro:content";
 
 const PROJECT_FOLDER = "project";
 
+const { slug } = Astro.params;
 const projectIndex = (await getEntry(
   PROJECT_FOLDER,
   "-index",
 )) as CollectionEntry<"project">;
 const projects = await getSinglePage(PROJECT_FOLDER);
 const sortedProjects = sortByDate(projects);
-const totalPages: number = Math.ceil(
-  projects.length / config.settings.pagination,
+const totalPages = Math.ceil(projects.length / config.settings.pagination);
+const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
+const indexOfLastProject = currentPage * config.settings.pagination;
+const indexOfFirstProject = indexOfLastProject - config.settings.pagination;
+const currentProjects = sortedProjects.slice(
+  indexOfFirstProject,
+  indexOfLastProject,
 );
-const currentProjects = sortedProjects.slice(0, config.settings.pagination);
+
+export async function getStaticPaths() {
+  const projects = await getSinglePage(PROJECT_FOLDER);
+  const totalPages = Math.ceil(projects.length / config.settings.pagination);
+  const paths = [];
+
+  for (let i = 1; i < totalPages; i++) {
+    paths.push({
+      params: {
+        slug: (i + 1).toString(),
+      },
+    });
+  }
+  return paths;
+}
 ---
 
 <Base
@@ -29,7 +49,7 @@ const currentProjects = sortedProjects.slice(0, config.settings.pagination);
   image={projectIndex.data.image}
   description={projectIndex.data.description}
 >
-  <PageHeader title={projectIndex?.data.title} />
+  <PageHeader title={projectIndex.data.title} />
   <section class="section">
     <div class="container">
       <div class="row">
@@ -39,14 +59,14 @@ const currentProjects = sortedProjects.slice(0, config.settings.pagination);
             {
               currentProjects.map((project) => (
                 <div class="mb-14 md:col-6">
-                  <ProjectCard data={project} />
+                  <BlogCard data={project} />
                 </div>
               ))
             }
           </div>
           <Pagination
             section={PROJECT_FOLDER}
-            currentPage={1}
+            currentPage={currentPage}
             totalPages={totalPages}
           />
         </div>
