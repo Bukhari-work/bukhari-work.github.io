@@ -7,7 +7,7 @@ banner:
   button:
     enable: true
     label: "Explore My Work"
-    link: "#projects"
+    link: "project"
 
 # Features
 features:
@@ -34,7 +34,7 @@ features:
     button:
       enable: true
       label: "View Projects"
-      link: "#projects"
+      link: "project"
 
   - title: "Tools & Technologies"
     image: "/images/tools.png"
