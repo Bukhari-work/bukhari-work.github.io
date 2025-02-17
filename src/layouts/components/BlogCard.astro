@@ -14,10 +14,7 @@ const { data } = Astro.props;
 const { title, image, date, author, categories } = data.data;
 ---
 
-<article
-  class="card grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 p-6
-  hover:shadow-body hover:dark:shadow-darkmode-body transition-all"
->
+<article class="card grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 p-6">
   <!-- Image Column -->
   {
     image && (
