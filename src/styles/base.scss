@@ -57,3 +57,25 @@ code {
 blockquote > p {
   @apply my-0 #{!important};
 }
+
+.slide-fade-in {
+  animation: slide-fade-in-animation ease-in-out 700ms both; /* Use a different animation name */
+}
+
+@keyframes slide-fade-in-animation {
+  from {
+    opacity: 0; /* Start with 0 opacity */
+    transform: translateY(10vh);
+  }
+  to {
+    opacity: 1; /* End with 1 opacity */
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion media query (Important for accessibility) */
+@media (prefers-reduced-motion: no-preference) {
+  .slide-fade-in {
+    animation: slide-fade-in-animation 700ms both;
+  }
+}
