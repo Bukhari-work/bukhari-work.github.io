@@ -18,7 +18,10 @@ const { title, image, date, author, categories } = data.data;
   <!-- Image Column -->
   {
     image && (
-      <div class="relative h-48 md:h-56 overflow-hidden rounded-lg">
+      <a
+        class="relative h-48 md:h-56 overflow-hidden rounded-lg"
+        href={`/${blog_folder}/${data.id}`}
+      >
         <ImageMod
           class="w-full h-full object-cover"
           src={image}
@@ -27,7 +30,7 @@ const { title, image, date, author, categories } = data.data;
           height={230}
           format="webp"
         />
-      </div>
+      </a>
     )
   }
 
