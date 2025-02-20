@@ -1,5 +1,5 @@
 ---
-import BlogCard from "@/components/BlogCard.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
 import Pagination from "@/components/Pagination.astro";
 import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
@@ -28,6 +28,7 @@ const currentProjects = sortedProjects.slice(
 );
 
 export async function getStaticPaths() {
+  const PROJECT_FOLDER = "project";
   const projects = await getSinglePage(PROJECT_FOLDER);
   const totalPages = Math.ceil(projects.length / config.settings.pagination);
   const paths = [];
@@ -59,7 +60,7 @@ export async function getStaticPaths() {
             {
               currentProjects.map((project) => (
                 <div class="mb-14 md:col-6">
-                  <BlogCard data={project} />
+                  <ProjectCard data={project} />
                 </div>
               ))
             }
