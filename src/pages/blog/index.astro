@@ -41,7 +41,7 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
           <div class="row">
             {
               currentPosts.map((post) => (
-                <div class="mb-14 md:col-12">
+                <div class="mb-14 md:col-12 slide-fade-in">
                   <BlogCard data={post} />
                 </div>
               ))
