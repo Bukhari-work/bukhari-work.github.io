@@ -51,8 +51,12 @@ export default defineConfig({
       ],
     ],
     shikiConfig: {
-      theme: "kanagawa-dragon",
+      themes: {
+        light: "snazzy-light",
+        dark: "everforest-dark",
+      },
       wrap: true,
+      langs: [],
     },
     extendDefaultPlugins: true,
   },

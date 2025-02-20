@@ -24,7 +24,7 @@ const projectCollection = defineCollection({
     title: z.string(),
     meta_title: z.string().optional(),
     description: z.string().optional(),
-    client: z.string().default("Client"),
+    company: z.string().default("Company"),
     date: z.date().optional(),
     image: z.string().optional(),
     author: z.string().default("Admin"),
