@@ -1,4 +1,6 @@
 ---
+import ImageMod from "@/components/ImageMod.astro";
+
 // Props for dynamic data
 const {
   title = "GRAND CANYON",
@@ -24,10 +26,14 @@ const {
   >
     <!-- Top Left: Profile Info -->
     <div class="flex items-center mb-4">
-      <img
+      <ImageMod
+        class="rounded-full object-cover w-[2rem] h-[2rem]\
+        outline-inherit bg-black/80 outline outline-2 outline-offset-2 size-14"
         src={profileImage}
-        alt="Profile"
-        class="w-10 h-10 rounded-full border border-white shadow"
+        width={150}
+        height={150}
+        alt={title}
+        format="webp"
       />
       <div class="ml-4">
         <p class="text-sm">{user}</p>
@@ -35,7 +41,7 @@ const {
       </div>
     </div>
     <!-- Title and Subtitle -->
-    <div class="text-center mb-4">
+    <div class="text-center mb-3">
       <h1 class="text-3xl font-bold leading-tight font-quarternary">{title}</h1>
       <h2
         class="text-lg text-darkmode-border dark:text-darkmode-primary font-quarternary"
@@ -44,29 +50,32 @@ const {
       </h2>
     </div>
     <!-- Metrics Badges -->
-    <div class="flex justify-center gap-4 mb-4 font-quarternary">
+    <div class="flex justify-center gap-4 mb-10 font-quarternary">
       {
-        metrics.map((item) => (
+        metrics.map((metric) => (
           <div class="btn-pill btn-primary px-3 py-1 text-xs">
-            <span>{item.icon}</span>
-            <span class="ml-1">{item.value}</span>
+            <span>{metric.icon}</span>
+            <span class="ml-1">{metric.value}</span>
           </div>
         ))
       }
     </div>
     <!-- Description (clamped to 2 lines) -->
-    <p
-      class="text-sm text-center line-clamp-10 font-quarternary backdrop-blur-md"
-    >
-      {description}
-    </p>
+    <div class="h-[25rem] rounded-xl border-2 dark:border-white border-dark">
+      <p class="p-2 text-sm line-clamp-10 text-center font-quarternary">
+        {description}
+      </p>
+    </div>
   </div>
 
   <!-- Background Image Section (with Gradient Overlay) -->
   <div class="absolute inset-0 w-full h-full">
-    <img
+    <ImageMod
       src={backgroundImage}
+      width={450}
+      height={650}
       alt="Background"
+      format="webp"
       class="w-full h-full object-cover"
     />
     <!-- Blur Overlay -->

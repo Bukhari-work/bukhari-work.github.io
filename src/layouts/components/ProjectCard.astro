@@ -27,11 +27,11 @@ const {
     <!-- Top Left: Profile Info -->
     <div class="flex items-center mb-4">
       <ImageMod
-        class="rounded-full object-cover w-[2rem] h-[2rem]\
+        class="rounded-full object-cover w-10 h-10\
         outline-inherit bg-black/80 outline outline-2 outline-offset-2 size-14"
         src={profileImage}
-        width={150}
-        height={150}
+        width={50}
+        height={50}
         alt={title}
         format="webp"
       />
@@ -76,6 +76,7 @@ const {
       height={650}
       alt="Background"
       format="webp"
+      loading="lazy"
       class="w-full h-full object-cover"
     />
     <!-- Blur Overlay -->
