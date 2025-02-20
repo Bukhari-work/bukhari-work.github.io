@@ -7,7 +7,7 @@ image: "/images/Project_name.png"
 categories: ["Application", "Data"]
 author: "John Doe"
 tags: ["nextjs", "tailwind"]
-client: "RevoU"
+company: "RevoU"
 technologies: ["React", "Node.js"]
 status: "Done"
 draft: false
