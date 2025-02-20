@@ -24,7 +24,17 @@
   }
 }
 
+.btn-primary-reverse {
+  @apply dark:border-primary dark:bg-primary dark:text-white
+    border-darkmode-primary text-dark bg-darkmode-primary
+
+    transition-transform duration-300 ease-in-out;
+  &:hover {
+    transform: scale(0.9);
+  }
+}
+
 .btn-outline-primary {
-  @apply border-dark text-dark bg-transparent hover:bg-dark hover:text-white
+  @apply border-primary text-dark bg-transparent hover:bg-dark hover:text-white
     dark:border-darkmode-primary dark:text-white  dark:hover:bg-darkmode-primary dark:hover:text-dark;
 }

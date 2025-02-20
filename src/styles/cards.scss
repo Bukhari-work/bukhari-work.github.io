@@ -1,19 +1,51 @@
 .card {
-  @apply rounded-lg overflow-hidden
-  shadow-lg shadow-border dark:shadow-darkmode-border
-  hover:shadow-body hover:dark:shadow-darkmode-body
-  bg-body dark:bg-darkmode-body
-  border border-border dark:border-darkmode-border
+  @apply relative rounded-3xl overflow-hidden transition-all duration-300 ease-in-out;
 
-  transition-all duration-300 ease-in-out;
+  /* Backgrounds and text */
+  @apply bg-body dark:bg-darkmode-body text-primary dark:text-darkmode-primary;
+
+  /* Borders */
+  @apply border border-border dark:border-darkmode-border;
+
   &:hover {
-    transform: scale(1.05) translateY(-2px);
+    @apply shadow-lg dark:shadow-darkmode-border;
+    transform: scale(1.05) translateY(-1rem);
   }
 }
 
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.card-project {
+  @apply max-w-md mx-auto flex flex-col h-[40rem];
+  @apply shadow-border dark:shadow-darkmode-border;
+
+  &:hover {
+    @apply shadow-light dark:shadow-light;
+
+    .card-button {
+      // Target the child/descendant
+      opacity: 1;
+      bottom: 32px;
+    }
+
+    a.card-link {
+      @apply shadow-lg dark:shadow-xl; // Use Tailwind classes for shadow
+      transform: scale(1.015);
+    }
+  }
+}
+
+.card-button {
+  opacity: 0;
+  bottom: 0;
+  transition: all 300ms ease-in-out 0.2s;
+
+  @apply rounded-full py-3.5 px-5 flex items-center;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-300;
+  @apply text-primary dark:text-darkmode-primary;
+  @apply bg-white dark:bg-dark bg-opacity-50 dark:bg-opacity-50;
+  @apply border border-solid cursor-pointer;
+  @apply border-black dark:border-white;
+}
+
+.card-image {
+  filter: sepia(0.3) saturate(1.2) hue-rotate(-10deg);
 }
