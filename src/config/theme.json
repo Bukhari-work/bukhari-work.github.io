@@ -31,10 +31,14 @@
   },
   "fonts": {
     "font_family": {
-      "primary": "Heebo:wght@400;600",
+      "primary": "Inter:wght@400;600",
       "primary_type": "sans-serif",
       "secondary": "Signika:wght@500;700",
-      "secondary_type": "sans-serif"
+      "secondary_type": "sans-serif",
+      "tertiary": "IBM+Plex+Mono:wght@400;600",
+      "tertiary_type": "sans-serif",
+      "quarternary": "El+Messiri:wght@600;700",
+      "quarternary_type": "sans-serif"
     },
     "font_size": {
       "base": "16",

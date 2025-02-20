@@ -13,8 +13,10 @@ import SearchModal from "./helpers/SearchModal";
 // font families
 const pf = theme.fonts.font_family.primary;
 const sf = theme.fonts.font_family.secondary;
+const tf = theme.fonts.font_family.tertiary;
+const qf = theme.fonts.font_family.quarternary;
 
-let fontPrimary, fontSecondary;
+let fontPrimary, fontSecondary, fontTertiary, fontQuarternary;
 if (theme.fonts.font_family.primary) {
   fontPrimary = theme.fonts.font_family.primary
     .replace(/\+/g, " ")
@@ -22,6 +24,16 @@ if (theme.fonts.font_family.primary) {
 }
 if (theme.fonts.font_family.secondary) {
   fontSecondary = theme.fonts.font_family.secondary
+    .replace(/\+/g, " ")
+    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
+}
+if (theme.fonts.font_family.tertiary) {
+  fontTertiary = theme.fonts.font_family.tertiary
+    .replace(/\+/g, " ")
+    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
+}
+if (theme.fonts.font_family.tertiary) {
+  fontQuarternary = theme.fonts.font_family.quarternary
     .replace(/\+/g, " ")
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
 }
@@ -82,6 +94,24 @@ const { title, meta_title, description, image, noindex, canonical } =
           fallback: "sans-serif",
           cssVariable: "font-secondary",
           googleFontsURL: `https://fonts.googleapis.com/css2?family=${sf}&display=swap`,
+        },
+        {
+          src: [],
+          preload: false,
+          display: "swap",
+          name: fontTertiary!,
+          fallback: "sans-serif",
+          cssVariable: "font-tertiary",
+          googleFontsURL: `https://fonts.googleapis.com/css2?family=${tf}&display=swap`,
+        },
+        {
+          src: [],
+          preload: false,
+          display: "swap",
+          name: fontQuarternary!,
+          fallback: "sans-serif",
+          cssVariable: "font-quarternary",
+          googleFontsURL: `https://fonts.googleapis.com/css2?family=${qf}&display=swap`,
         },
       ]}
     />
