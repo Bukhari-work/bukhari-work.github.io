@@ -155,12 +155,14 @@ const testimonialSectionCollection = defineCollection({
     enable: z.boolean(),
     title: z.string(),
     description: z.string(),
+    descriptionAddition: z.string(),
     testimonials: z.array(
       z.object({
         name: z.string(),
         avatar: z.string(),
         designation: z.string(),
         content: z.string(),
+        link: z.string().optional(),
       }),
     ),
   }),
