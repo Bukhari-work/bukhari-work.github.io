@@ -1,6 +1,23 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
 
+// Define prop types
+interface Metric {
+  icon: string;
+  value: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  user: string;
+  date: string;
+  metrics: Metric[];
+  description: string;
+  backgroundImage: string;
+  profileImage: string;
+}
+
 // Props for dynamic data
 const {
   title = "GRAND CANYON",
@@ -11,12 +28,12 @@ const {
     { icon: "🚶", value: "19.9 mi" },
     { icon: "⛰️", value: "2694 ft" },
     { icon: "📍", value: "Arizona · USA" },
-  ],
+  ] as Metric[], // Ensure metrics is typed correctly
   description = `Grand Canyon National Park in northwestern Arizona is an iconic
   destination at the top of many travelers' bucket lists...`,
   backgroundImage = "/images/your-image.jpg",
   profileImage = "/images/profile-image.jpg",
-} = Astro.props;
+} = Astro.props as Props;
 ---
 
 <div class="card card-project border-[0.625rem] group">
