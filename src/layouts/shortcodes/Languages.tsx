@@ -34,11 +34,11 @@ const Languages: FC<LanguagesProps> = ({ languages }) => {
   if (languages.length === 0) return null;
 
   return (
-    <div className="flex flex-wrap gap-2 justify-center mb-4">
+    <div className="flex flex-wrap justify-center gap-2 p-3">
       {languages.map((language, index) => (
         <span
           key={`${language}-${index}`}
-          className="btn-pill btn-primary w-30 h-8 flex items-center justify-center gap-2"
+          className="btn-pill btn-primary h-8 flex items-center justify-center gap-2"
         >
           {languageIcons[language] || null}
           <span>{language}</span>
