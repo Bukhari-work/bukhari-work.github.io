@@ -1,11 +1,68 @@
 ---
-title: "Hey, I am Ahmad Bukhari!"
+title: "Hey, I'm Ahmad Bukhari!"
 meta_title: "About"
-description: "this is meta description"
+description: "Nuclear engineer turned data enthusiast. I transform numbers into narratives and data into decisions. Powered by coffee and a passion for fitness."
 image: "/images/IMG_20230524_073734.jpg"
 draft: false
 ---
 
-Driven by a commitment to data analytics and problem-solving, I systematically dissect challenges to identify their core issues and develop actionable solutions. During a recent mock project at RevoU, I applied data-driven analysis to recommend a sales promotion strategy, resulting in a remarkable 10% surge in sales for an emulated company. This hands-on experience underscores my capability to deliver significant outcomes through targeted analytical approaches.
+*I blend analytical rigor with creative storytelling to empower smarter decisions.*
 
-Recognised for my meticulous attention to detail and collaborative spirit, I thrive in team-driven environments where strong communication and proactive problem-solving are key. My unique blend of technical proficiency and commitment to teamwork positions me to contribute effectively to any organisation aiming for impactful growth.
+### My Journey
+
+  <ul className="space-y-4">
+    <li><strong>2025</strong>: 🚀 Graduated from the RevoU Data Analytics Program, mastering the art of data storytelling.</li>
+    <li><strong>2024</strong>: 📈 Discovered my passion for Python and data, sparking a transformative career pivot.</li>
+    <li><strong>2023</strong>: 🎓 Earned my Bachelor's in Nuclear Engineering from UGM, where I first learned to see data as the key to solving complex puzzles.</li>
+  </ul>
+
+
+
+import { FaDatabase } from 'react-icons/fa';
+import { SiPython, SiTableau } from 'react-icons/si';
+
+### My Main Toolkit
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+    {[
+      { Icon: SiPython, label: 'Python', desc: 'Analysing and visualising data.' },
+      { Icon: SiTableau, label: 'Tableau', desc: 'Designing dashboards to life.' },
+      { Icon: FaDatabase, label: 'SQL', desc: 'Extracting stories hidden in databases.' }
+    ].map(({ Icon, label, desc }) => (
+      <div key={label} className="text-primary dark:text-darkmode-primary flex flex-col items-center text-center p-4 border rounded-lg">
+        <Icon className="text-4xl mb-2" />
+        <h3 className="text-xl font-semibold">{label}</h3>
+        <p className="mt-1">{desc}</p>
+      </div>
+    ))}
+  </div>
+
+
+### My Wins
+  <ul className="list-disc pl-6 space-y-2">
+    <li>🚀 <strong>10% Sales Boost</strong>: Developed a promo strategy during my RevoU project that drove tangible results.</li>
+    <li>📊 <strong>500+ Hours of Analysis</strong>: Delivered actionable insights across multiple projects and industries.</li>
+    <li>🤝 <strong>Collaborative Success</strong>: Worked with over 20 teams to bridge the gap between data and decision-making.</li>
+  </ul>
+
+
+ ### Beyond the Data
+  <p>When I'm not immersed in datasets, you'll find me:</p>
+  <ul className="list-disc pl-6 space-y-2 mt-2">
+    <li>Hitting the pavement on a refreshing jog,</li>
+    <li>Breaking the tires on a challenging bike ride,</li>
+    <li>Watching suspenseful movies, or</li>
+    <li>Reading detailed and immersive (yet sometimes dumb) novels.</li>
+  </ul>
+  <img src="/images/coffee.jpg" alt="Coffee Moments" className="mt-6 rounded-lg shadow-md"/>
+
+---
+<div className="my-12 text-center">
+  <h2 className="text-2xl font-bold mb-4">Let's Collaborate!</h2>
+  <p>
+    Ready to turn your data into decisions?{' '}
+    <a href="/project" className="text-blue-600 hover:underline">Explore my projects</a> or{' '}
+    <a href="/contact" className="text-blue-600 hover:underline">drop me a line</a> to start a conversation!
+  </p>
+</div>
+
+---
