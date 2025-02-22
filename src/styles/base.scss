@@ -13,6 +13,19 @@ h4,
 h5,
 h6 {
   @apply font-secondary font-bold leading-tight text-dark dark:text-darkmode-dark;
+  @apply scroll-mt-28;
+}
+
+/* For medium screens and larger */
+@media (min-width: 768px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply scroll-mt-24; /* Adjust accordingly (e.g., 20 => 5rem) */
+  }
 }
 
 h1,
@@ -58,24 +71,59 @@ blockquote > p {
   @apply my-0 #{!important};
 }
 
+// Animation
+// Animation Variables
+$slide-fade-duration: 500ms;
+$slide-in-duration: 300ms;
+$slide-out-duration: 100ms;
+$timing-function: ease-in-out;
+
+// Shared Animation Mixin
+@mixin slide-animation($name, $fromY, $toY, $fade: false) {
+  animation: $name $timing-function var(--animation-duration) both;
+
+  @keyframes #{$name} {
+    from {
+      @if $fade {
+        opacity: 0;
+      }
+      transform: translateY($fromY);
+    }
+    to {
+      @if $fade {
+        opacity: 1;
+      }
+      transform: translateY($toY);
+    }
+  }
+}
+
+// Entrance Animations
 .slide-fade-in {
-  animation: slide-fade-in-animation ease-in-out 700ms both; /* Use a different animation name */
+  --animation-duration: #{$slide-fade-duration};
+  @include slide-animation(slide-fade-in, 10vh, 0, true);
 }
 
-@keyframes slide-fade-in-animation {
-  from {
-    opacity: 0; /* Start with 0 opacity */
-    transform: translateY(10vh);
-  }
-  to {
-    opacity: 1; /* End with 1 opacity */
-    transform: translateY(0);
-  }
+.slide-in {
+  --animation-duration: #{$slide-in-duration};
+  @include slide-animation(slide-in, -10vh, 0);
 }
 
-/* Reduced motion media query (Important for accessibility) */
+// Exit Animations (New)
+.slide-fade-out {
+  --animation-duration: #{$slide-fade-duration};
+  @include slide-animation(slide-fade-out, 0, 10vh, true);
+}
+
+.slide-out {
+  --animation-duration: #{$slide-out-duration};
+  @include slide-animation(slide-out, 0, -10vh);
+}
+
+// Reduced Motion
 @media (prefers-reduced-motion: no-preference) {
-  .slide-fade-in {
-    animation: slide-fade-in-animation 700ms both;
+  .slide-fade-in,
+  .slide-fade-out {
+    animation-duration: $slide-fade-duration;
   }
 }
