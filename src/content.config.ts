@@ -23,16 +23,33 @@ const projectCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     meta_title: z.string().optional(),
-    description: z.string().optional(),
-    company: z.string().default("Company"),
-    date: z.date().optional(),
+    subtitle: z.string().optional(),
     image: z.string().optional(),
-    author: z.string().default("Admin"),
-    categories: z.array(z.string()).default(["others"]),
-    tags: z.array(z.string()).default(["others"]),
-    technologies: z.array(z.string()).default(["others"]),
-    draft: z.boolean().optional(),
+    date: z.date().optional(),
+    description: z.string().optional(),
+    author: z
+      .object({
+        name: z.string(),
+        avatar: z.string(),
+      })
+      .optional(),
+    company: z.string().default("Company"),
+    metadata: z
+      .object({
+        hours: z.string().optional(),
+        type: z.string().optional(),
+        size: z.string().optional(),
+      })
+      .optional(),
     status: z.string().optional(),
+    skills: z.array(z.string()).default(["others"]),
+    colors: z
+      .object({
+        text: z.string(),
+        background: z.string(),
+      })
+      .optional(),
+    draft: z.boolean().optional(),
   }),
 });
 
