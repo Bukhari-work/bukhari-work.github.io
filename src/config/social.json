@@ -6,19 +6,19 @@
       "link": "https://www.facebook.com/"
     },
     {
-      "name": "twitter",
-      "icon": "FaTwitter",
-      "link": "https://twitter.com/"
+      "name": "e-mail",
+      "icon": "FaEnvelope",
+      "link": "mailto:ahmadbukhariwork@gmail.com"
     },
     {
       "name": "github",
       "icon": "FaGithub",
-      "link": "https://www.github.com/"
+      "link": "https://github.com/Bukhari-work "
     },
     {
       "name": "linkedin",
       "icon": "FaLinkedin",
-      "link": "https://www.linkedin.com/"
+      "link": "https://www.linkedin.com/in/ahmad-bukhari-6112891b7/ "
     }
   ]
 }
