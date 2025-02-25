@@ -3,9 +3,9 @@ import {
   FaFilePdf,
   FaFileWord,
   FaFileExcel,
-  FaRegFilePowerpoint,
+  FaFilePowerpoint,
   FaDownload,
-} from "react-icons/fa";
+} from "react-icons/fa6";
 
 const DownloadButton = ({
   label,
@@ -40,7 +40,7 @@ const DownloadButton = ({
     case "power point":
     case "ppt":
     case "pptx":
-      IconComponent = FaRegFilePowerpoint;
+      IconComponent = FaFilePowerpoint;
       break;
     default:
       IconComponent = FaDownload;

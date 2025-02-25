@@ -1,6 +1,6 @@
 import React from "react";
 import type { FC, ReactElement } from "react";
-import { FaJava, FaFileExcel, FaDatabase } from "react-icons/fa";
+import { FaJava, FaFileExcel, FaDatabase } from "react-icons/fa6";
 import {
   SiJavascript,
   SiPython,
@@ -12,7 +12,7 @@ import {
   SiTableau,
 } from "react-icons/si";
 
-interface LanguagesProps {
+interface LanguageProps {
   languages: string[];
 }
 
@@ -30,7 +30,7 @@ const languageIcons: Record<string, ReactElement> = {
   Tableau: <SiTableau style={{ color: "#E97627" }} />, // Tableau: #E97627
 };
 
-const Languages: FC<LanguagesProps> = ({ languages }) => {
+const Languages: FC<LanguageProps> = ({ languages }) => {
   if (languages.length === 0) return null;
 
   return (
