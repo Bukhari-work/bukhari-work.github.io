@@ -50,7 +50,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .navbar-brand {
-  @apply text-xl font-semibold text-dark dark:text-darkmode-dark md:pb-1;
+  @apply text-xl font-semibold text-dark dark:text-darkmode-dark;
   image {
     @apply max-h-full max-w-full;
   }
