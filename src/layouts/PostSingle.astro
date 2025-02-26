@@ -1,22 +1,32 @@
 ---
+import { render } from "astro:content";
+import { slide } from "astro:transitions";
+
 import BlogCard from "@/components/BlogCard.astro";
 import Share from "@/components/Share.astro";
-// import Disqus from "@/helpers/Disqus";
+import ImageMod from "./components/ImageMod.astro";
+
 import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
 import similarItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
-import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
-import ImageMod from "./components/ImageMod.astro";
-import { render } from "astro:content";
 
-const COLLECTION_FOLDER = "blog";
+import { FaClock, FaFolderClosed, FaUserPen } from "react-icons/fa6";
+
 const { post } = Astro.props;
+const COLLECTION_FOLDER = "blog";
 
-const posts = await getSinglePage(COLLECTION_FOLDER);
+// Optimize performance with parallel execution
+const [posts, renderedContent] = await Promise.all([
+  getSinglePage(COLLECTION_FOLDER),
+  render(post),
+]);
+
 const similarPosts = similarItems(post, posts);
-const { Content } = await render(post);
-const { title, description, author, categories, image, date, tags } = post.data;
+
+const { data } = post; // Cleaner destructuring
+const { title, description, author, categories, image, date, tags } = data;
+const { Content } = renderedContent;
 ---
 
 <section class="section pt-7">
@@ -31,10 +41,10 @@ const { title, description, author, categories, image, date, tags } = post.data;
                 height={500}
                 width={1200}
                 alt={title}
-                class="w-full rounded"
+                class="w-full rounded transition-all transition-duration-300"
                 format="webp"
-                transition:name="blog-image"
-                transition:animate={"slide"}
+                transition:name={`blog ${post.id} image`}
+                transition:animate={slide({ duration: "0.5s" })}
               />
             </div>
           )
@@ -43,12 +53,12 @@ const { title, description, author, categories, image, date, tags } = post.data;
         <ul class="mb-4">
           <li class="mr-4 inline-block">
             <a href={`/authors/${slugify(author)}`}>
-              <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
+              <FaUserPen className={"mr-2 -mt-1 inline-block"} />
               {humanize(author)}
             </a>
           </li>
           <li class="mr-4 inline-block">
-            <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
+            <FaFolderClosed className={"mr-2 -mt-1 inline-block"} />
             {
               categories.map((category: string, index: number) => (
                 <a href={`/categories/${slugify(category)}`}>
@@ -59,7 +69,7 @@ const { title, description, author, categories, image, date, tags } = post.data;
             }
           </li>
           <li class="mr-4 inline-block">
-            <FaRegClock className={"mr-2 -mt-1 inline-block"} />
+            <FaClock className={"mr-2 -mt-1 inline-block"} />
             {dateFormat(date)}
           </li>
         </ul>
@@ -90,11 +100,11 @@ const { title, description, author, categories, image, date, tags } = post.data;
               className="social-icons"
               title={title}
               description={description}
-              slug={post.slug}
+              collection={post.collection}
+              slug={post.id}
             />
           </div>
         </div>
-        <!--        <Disqus className="mt-20" client:load />-->
       </article>
     </div>
 
@@ -104,7 +114,7 @@ const { title, description, author, categories, image, date, tags } = post.data;
       <div class="row justify-center">
         {
           similarPosts.map((post) => (
-            <div class="lg:col-6 md:col-12 mb-14">
+            <div class="col-10 lg:col-8 mb-14">
               <BlogCard data={post} />
             </div>
           ))
