@@ -1,0 +1,47 @@
+---
+import Value from "./Value.astro";
+
+import { FaHourglassEnd, FaUsers, FaDatabase } from "react-icons/fa6";
+
+const { metadata, font } = Astro.props;
+
+const metadataArray = Object.entries(metadata).map(([key, value]) => ({
+  [key]: value,
+}));
+---
+
+<ul class="my-2.5 flex flex-wrap items-center justify-center gap-2.5">
+  {
+    metadataArray.length > 0 &&
+      metadataArray.map((obj, index) => {
+        const [key, value] = Object.entries(obj)[0];
+
+        function svg(type: string) {
+          switch (type) {
+            case "hours":
+              return (
+                <span class="w-3">
+                  <FaHourglassEnd />
+                </span>
+              );
+            case "type":
+              return (
+                <span class="w-3">
+                  <FaUsers />
+                </span>
+              );
+            case "size":
+              return (
+                <span class="w-3">
+                  <FaDatabase />
+                </span>
+              );
+          }
+        }
+
+        return (
+          <Value icon={svg(key)} label={value} index={index} font={font} />
+        );
+      })
+  }
+</ul>

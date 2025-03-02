@@ -1,6 +1,5 @@
 ---
 import { render } from "astro:content";
-import { slide } from "astro:transitions";
 
 import BlogCard from "@/components/BlogCard.astro";
 import Share from "@/components/Share.astro";
@@ -24,7 +23,7 @@ const [posts, renderedContent] = await Promise.all([
 
 const similarPosts = similarItems(post, posts);
 
-const { data } = post; // Cleaner destructuring
+const { data } = post;
 const { title, description, author, categories, image, date, tags } = data;
 const { Content } = renderedContent;
 ---
@@ -43,8 +42,6 @@ const { Content } = renderedContent;
                 alt={title}
                 class="w-full rounded transition-all transition-duration-300"
                 format="webp"
-                transition:name={`blog ${post.id} image`}
-                transition:animate={slide({ duration: "0.5s" })}
               />
             </div>
           )

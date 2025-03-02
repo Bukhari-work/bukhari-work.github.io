@@ -2,7 +2,7 @@
 import config from "@/config/config.json";
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
-import { FaRegFolder, FaRegUserCircle, FaRegClock } from "react-icons/fa";
+import { FaUserPen, FaClock, FaFolderClosed } from "react-icons/fa6";
 import ImageMod from "./ImageMod.astro";
 
 const {
@@ -29,8 +29,6 @@ const { title, image, date, author, categories } = data.data;
           width={445}
           height={230}
           format="webp"
-          transition:name="blog-image"
-          transition:animate={"slide"}
         />
       </a>
     )
@@ -52,14 +50,14 @@ const { title, image, date, author, categories } = data.data;
         {
           date && (
             <div class="flex items-center text-muted">
-              <FaRegClock className="mr-2 flex-shrink-0" />
+              <FaClock className="mr-2 flex-shrink-0" />
               <time class="flex flex-wrap gap-2">{dateFormat(date)}</time>
             </div>
           )
         }
         <!-- Author -->
         <div class="flex items-center text-muted">
-          <FaRegUserCircle className="mr-2 flex-shrink-0" />
+          <FaUserPen className="mr-2 flex-shrink-0" />
           <a href={`/authors/${slugify(author)}`} class="hover:text-gray-500">
             {humanize(author)}
           </a>
@@ -69,7 +67,7 @@ const { title, image, date, author, categories } = data.data;
         {
           categories?.length > 0 && (
             <div class="flex items-center text-muted">
-              <FaRegFolder className="mr-2 flex-shrink-0" />
+              <FaFolderClosed className="mr-2 flex-shrink-0" />
               <div class="flex flex-wrap gap-2">
                 {categories.map((category: string) => (
                   <a

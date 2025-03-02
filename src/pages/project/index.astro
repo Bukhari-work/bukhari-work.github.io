@@ -6,6 +6,7 @@ import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 import PageHeader from "@/partials/PageHeader.astro";
+import ProjectDeck from "@/layouts/partials/ProjectDeck.astro";
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
 
@@ -30,27 +31,5 @@ const currentProjects = sortedProjects.slice(0, config.settings.pagination);
   description={projectIndex.data.description}
 >
   <PageHeader title={projectIndex?.data.title} />
-  <section class="section">
-    <div class="container">
-      <div class="row">
-        <!-- projects -->
-        <div class="lg:col-12">
-          <div class="row slide-fade-in">
-            {
-              currentProjects.map((project) => (
-                <div class="mb-14 md:col-6">
-                  <ProjectCard data={project} />
-                </div>
-              ))
-            }
-          </div>
-          <Pagination
-            section={PROJECT_FOLDER}
-            currentPage={1}
-            totalPages={totalPages}
-          />
-        </div>
-      </div>
-    </div>
-  </section>
+  <ProjectDeck projects={sortedProjects} />
 </Base>

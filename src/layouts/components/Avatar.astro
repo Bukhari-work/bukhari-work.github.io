@@ -1,0 +1,62 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+
+const { author, postDate, slug, resolution, isStacked = false } = Astro.props;
+
+function getInitials(name: string) {
+  const words = name.split(" ");
+  const initials = words.map((word) => word.charAt(0).toUpperCase());
+  return initials.join("");
+}
+---
+
+<div
+  class:list={[
+    "flex items-center gap-4",
+    { "flex-col items-center justify-center gap-2 text-center": isStacked },
+  ]}
+>
+  {
+    author.avatar ? (
+      <ImageMod
+        src={author.avatar}
+        height={resolution}
+        width={resolution}
+        alt=""
+        class:list={[
+          "object-cover outline-inherit rounded-full bg-black/20 outline outline-2 outline-offset-2",
+          {
+            "size-14": isStacked,
+            "size-10": !isStacked,
+          },
+        ]}
+        aria-hidden="true"
+        transition:name={`avatar ${slug} image`}
+      />
+    ) : (
+      <div
+        class="outline-inherit text-inherit size-10 flex items-center justify-center rounded-full bg-black/20 text-lg font-bold outline outline-2 outline-offset-2"
+        aria-hidden="true"
+        transition:name={`avatar ${slug} image`}
+      >
+        {getInitials(author.name)}
+      </div>
+    )
+  }
+
+  <div
+    class="flex flex-col text-xs font-tertiary"
+    transition:name={`avatar ${slug} details`}
+  >
+    <p class="font-semibold">{author.name}</p>
+    <time datetime={postDate}>
+      {
+        postDate.toLocaleDateString("en-UK", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        })
+      }
+    </time>
+  </div>
+</div>
