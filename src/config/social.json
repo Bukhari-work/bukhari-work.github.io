@@ -1,11 +1,6 @@
 {
   "main": [
     {
-      "name": "facebook",
-      "icon": "FaFacebook",
-      "link": "https://www.facebook.com/"
-    },
-    {
       "name": "e-mail",
       "icon": "FaEnvelope",
       "link": "mailto:ahmadbukhariwork@gmail.com"
