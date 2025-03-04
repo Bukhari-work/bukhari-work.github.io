@@ -1,5 +1,5 @@
 ---
-title: John Doe
+title: Ahmad Bukhari
 meta_title: "this is meta-title wahaha"
 email: ahmadbukhariwork@gmail.com
 image: "/images/avatar.png"
@@ -14,7 +14,7 @@ social:
     link: https://www.linkedin.com/in/ahmad-bukhari-6112891b7/
 
   - name: eMail
-    icon: FaLinkedin
+    icon: FaEnvelope
     link: mailto:email
 ---
 
