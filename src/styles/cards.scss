@@ -1,36 +1,25 @@
 .card {
-  @apply relative rounded-3xl overflow-hidden transition-all duration-300 ease-in-out;
-
+  @apply relative rounded-3xl overflow-hidden;
   /* Backgrounds and text */
   @apply bg-theme-light dark:bg-darkmode-theme-light text-primary dark:text-darkmode-primary;
-
   /* Borders */
   @apply border border-border dark:border-darkmode-border;
+  /* Transition */
+  @apply transition-all duration-300 ease-in-out;
+}
 
-  &:hover {
-    @apply shadow-lg dark:shadow-darkmode-border;
-    transform: scale(1.05) translateY(-1rem);
-  }
+.card-hover:hover {
+  @apply shadow-lg dark:shadow-darkmode-border;
+  transform: scale(0.95) translateY(1rem);
 }
 
 .card-project {
-  @apply max-w-md mx-auto flex flex-col h-[40rem];
+  @apply max-w-md mx-auto flex flex-col h-[35rem] w-[25rem];
   @apply shadow-border dark:shadow-darkmode-border;
+}
 
-  &:hover {
-    @apply shadow-light dark:shadow-light;
-
-    .card-button {
-      // Target the child/descendant
-      opacity: 1;
-      bottom: 32px;
-    }
-
-    a.card-link {
-      @apply shadow-lg dark:shadow-xl; // Use Tailwind classes for shadow
-      transform: scale(1.015);
-    }
-  }
+.card-project-hover:hover {
+  @apply shadow-light dark:shadow-light;
 }
 
 .card-button {

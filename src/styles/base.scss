@@ -85,7 +85,7 @@ $timing-function: ease-in-out;
   @keyframes #{$name} {
     from {
       @if $fade {
-        opacity: 0;
+        opacity: 1; //0 if an actual fade is needed
       }
       transform: translateY($fromY);
     }

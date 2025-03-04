@@ -21,7 +21,7 @@ input#nav-toggle:checked ~ #nav-menu {
 
   &.pill-shape {
     @apply w-10/12
-    mt-4 mx-auto
+    mx-auto
     rounded-[2rem] lg:rounded-full
 
     bg-body dark:bg-darkmode-body
