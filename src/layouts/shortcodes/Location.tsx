@@ -10,7 +10,7 @@ export default function Location({ location }: LocationProps) {
 
   return (
     <div className="flex items-center justify-center">
-      <span className="flex items-center justify-center gap-2 h6 text-dark dark:text-white ">
+      <span className="btn-pill flex items-center justify-center gap-2 py-0">
         <FaEarthAsia className="h-10" />
         <span>{location}</span>
       </span>

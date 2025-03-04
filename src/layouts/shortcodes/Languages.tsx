@@ -38,7 +38,7 @@ const Languages: FC<LanguageProps> = ({ languages }) => {
       {languages.map((language, index) => (
         <span
           key={`${language}-${index}`}
-          className="btn-pill btn-primary h-8 flex items-center justify-center gap-2"
+          className="btn-pill  h-8 flex items-center justify-center gap-2"
         >
           {languageIcons[language] || null}
           <span>{language}</span>
