@@ -67,7 +67,6 @@ const SecondTag = asHeader? 'div' : 'header';
   <!-- card background -->
   <div
     class:list={["absolute inset-1 rounded-3xl -z-10", colors.background]}
-    transition:name={`card ${data.id} background`}
   >
   </div>
   {
@@ -141,11 +140,11 @@ const SecondTag = asHeader? 'div' : 'header';
 
     <div class="flex flex-col gap-4 text-center font-sans">
       <div
-        class="text-balance flex flex-col"
+        class={`text-balance flex flex-col ${asHeader ? "":"mt-10"}`}
         transition:name={`card ${data.id} heading`}
       >
-        <h1 class="text-3xl font-semibold uppercase leading-none font-tertiary">
-          {title}
+        <h1 class="text-3xl font-semibold uppercase leading-none font-tertiary mb-2">
+          「{title}」
         </h1>
         <h2 class="text-lg font-tertiary">
           {subtitle}
