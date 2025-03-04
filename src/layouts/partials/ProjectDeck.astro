@@ -1,11 +1,24 @@
 ---
 import ProjectCard from "@/layouts/components/ProjectCard.astro";
-const { projects } = Astro.props;
+import type { Project } from "@/layouts/ProjectSingle.astro";
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props as Props;
 ---
+
+<style>
+  /* Disable pointer events for non-active slides */
+  .swiper-slide:not(.swiper-slide-active) {
+    pointer-events: none;
+  }
+</style>
 
 <section class="section md:pt-10">
   <div class="swiper">
-    <div class="projectDeck-slider max-w-2xl mx-auto">
+    <div class="projectDeck-slider max-w-3xl mx-auto">
       <div class="swiper-wrapper">
         {
           projects.map((project) => (
@@ -25,29 +38,74 @@ const { projects } = Astro.props;
 
 <script>
   import { Swiper } from "swiper";
+  import type { Swiper as SwiperType } from "swiper"; // Add type import
   import "swiper/css";
   import "swiper/css/pagination";
-  import { Autoplay, Pagination, EffectCards } from "swiper/modules";
+  import "swiper/css/effect-coverflow";
+  import { Pagination, EffectCoverflow } from "swiper/modules";
 
-  // astro:page-load event is fired when the page is loaded
-  document.addEventListener("astro:page-load", () => {
-    new Swiper(".projectDeck-slider", {
-      effect: "cards",
-      cardsEffect: {
-        // Disable slide shadows
-        slideShadows: false,
-        // Adjust rotation angle (default is typically a non-zero value)
-        rotate: true,
-        perSlideRotate: 4,
-        perSlideOffset: 6,
-      },
-      modules: [EffectCards, Pagination],
-      slidesPerView: 1, // Effect Cards works best with one slide per view
+  // Explicitly type the swiper instance
+  let swiperInstance: SwiperType | null = null;
+
+  function destroySwiper() {
+    if (swiperInstance) {
+      swiperInstance.destroy(true, true);
+      swiperInstance = null;
+    }
+  }
+
+  function initSwiper() {
+    // Safe parsing with null handling and validation
+    const savedSlide =
+      Math.max(
+        0,
+        parseInt(localStorage.getItem("projectDeckActiveSlide") || "0", 10),
+      ) || 0;
+
+    swiperInstance = new Swiper(".projectDeck-slider", {
+      effect: "coverflow",
+      modules: [EffectCoverflow, Pagination],
+      slidesPerView: "auto", // Allow slides to adjust automatically
+      centeredSlides: true, // Center the active slide
       pagination: {
         el: ".testimonial-slider-pagination",
         type: "bullets",
         clickable: true,
       },
-    });
-  });
+      breakpoints: {
+        // For small screens (default settings)
+        0: {
+          coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
+          },
+        },
+        // For large screens (viewport width >= 1024px)
+        1024: {
+          coverflowEffect: {
+            rotate: 50,
+            stretch: 100,
+            depth: 150,
+            modifier: 1,
+            slideShadows: false,
+          },
+        },
+      },
+      initialSlide: savedSlide,
+      on: {
+        slideChange: (swiper) => {
+          localStorage.setItem(
+            "projectDeckActiveSlide",
+            swiper.activeIndex.toString(),
+          );
+        },
+      },
+    }) as SwiperType; // Type assertion here
+  }
+
+  document.addEventListener("astro:page-load", initSwiper);
+  document.addEventListener("astro:before-navigate", destroySwiper);
 </script>

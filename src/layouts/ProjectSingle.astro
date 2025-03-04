@@ -15,7 +15,7 @@ interface Author {
   avatar: string;
 }
 
-interface Project {
+export interface Project {
   title: string;
   subtitle: string;
   image: string;
@@ -61,8 +61,8 @@ const { Content } = await render(project);
   <div>
     <div
       class="content
-      mt-8 mb-10 pl-5
-      border-l-2
+      mt-0 lg:mt-8 mb-10 pl-5
+      lg:border-l-2
       border-border dark:border-darkmode-border"
     >
       <Content />

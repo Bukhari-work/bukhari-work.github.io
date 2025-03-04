@@ -58,7 +58,7 @@ const SecondTag = asHeader? 'div' : 'header';
   href={asHeader ? undefined : `project/${data.id}`}
   class:list={[
     "card card-project bg-transparent dark:bg-transparent",
-    `${asHeader ? "min-h-[calc(100svh-96px)] max-h-[calc(100svh-96px)] sticky top-24" : "card-hover card-project-hover"}`,
+    `${asHeader ? "min-h-[calc(100svh-112px)] max-h-[calc(100svh-112px)] lg:sticky top-10 lg:top-24" : "card-hover card-project-hover"}`,
     colors.text,
   ]}
   transition:name={`card ${data.id} core`}
