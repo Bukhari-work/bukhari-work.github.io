@@ -1,7 +1,9 @@
 ---
+import config from "@/config/config.json";
 import ImageMod from "@/components/ImageMod.astro";
 import Avatar from "@/components/Avatar.astro";
 import Metadata from "@/components/Metadata/Metadata.astro";
+import { plainify} from "@/lib/utils/textConverter";
 import { slide } from "astro:transitions";
 
 // Define prop types
@@ -49,15 +51,20 @@ const {
   colors,
 } = data.data as Data;
 
+const {
+  summary_length,
+  project_folder,
+}: { summary_length: number; project_folder: string } = config.settings;
+
 const MainTag = asHeader ? 'section' : 'a';
 const SubTag = asHeader ? 'header' : 'article';
-const SecondTag = asHeader? 'div' : 'header';
+const HeadingTag = asHeader? 'div' : 'header';
 ---
 
 <MainTag
-  href={asHeader ? undefined : `project/${data.id}`}
+  href={asHeader ? undefined : `${project_folder}/${data.id}`}
   class:list={[
-    "card card-project bg-transparent dark:bg-transparent",
+    "card card-project",
     `${asHeader ? "min-h-[calc(100svh-112px)] max-h-[calc(100svh-112px)] lg:sticky top-10 lg:top-24" : "card-hover card-project-hover"}`,
     colors.text,
   ]}
@@ -66,14 +73,14 @@ const SecondTag = asHeader? 'div' : 'header';
 <SubTag>
   <!-- card background -->
   <div
-    class:list={["absolute inset-1 rounded-3xl -z-10", colors.background]}
+    class:list={["absolute inset-1 rounded-3xl h-full", colors.background]}
   >
   </div>
   {
     asHeader && (
     <!-- card back arrow -->
     <a
-      href="/project"
+      href={`${project_folder}`}
       transition:animate={slide({ duration: "0.5s" })}
       class="focus-visible:outline-inherit absolute left-4 top-3 z-10 flex h-8 items-center rounded-lg px-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-orange active:bg-shark-active"
     >
@@ -95,14 +102,17 @@ const SecondTag = asHeader? 'div' : 'header';
     </a>
     )
   }
-  <!-- card avatar, title, and metadata-->
-  <SecondTag
-    class={`relative flex flex-col p-8 pb-0
-          ${asHeader ?
-          "mx-auto max-w-6xl items-center justify-between gap-10":
-          "gap-6"}`}
+  <!-- card avatar, title, metadata, and description -->
+  <HeadingTag
+  class:list={[
+        "relative flex flex-col p-8 pb-0",
+        asHeader
+          ? "mx-auto max-w-6xl items-center justify-between gap-8"
+          : "gap-6 h-[20rem]"
+      ]}
   >
-    <div class={`relative ${asHeader ? "":"flex items-center justify-between gap-4"}`}>
+    <!-- avatar and + button -->
+    <div class:list={["relative", !asHeader && "flex items-center justify-between gap-4"]}>
       <Avatar
         author={author}
         postDate={date}
@@ -115,13 +125,9 @@ const SecondTag = asHeader? 'div' : 'header';
         "flex items-center justify-center rounded-full",
         "bg-black text-border dark:bg-white dark:text-darkmode-border",
         "focus-visible:outline-inherit focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-orange",
-        ...(
-          asHeader
-            ? ["size-5",
-               " absolute bottom-0 right-0 top-0 mx-auto",
-               "-translate-x-1.5 translate-y-5"]
-            : ["size-7"]
-        )
+        asHeader
+            ? "size-5 absolute bottom-0 right-0 top-0 mx-auto -translate-x-1.5 translate-y-5"
+            : "size-7"
       ]}
         transition:name={`card ${data.id} add`}
         ><svg
@@ -138,43 +144,52 @@ const SecondTag = asHeader? 'div' : 'header';
       >
     </div>
 
-    <div class="flex flex-col gap-4 text-center font-sans">
+    <!-- title, subtitle, and meta -->
+    <div class="flex flex-col gap-4 text-center my-auto">
+      <!-- title and subtitle -->
       <div
-        class={`text-balance flex flex-col ${asHeader ? "":"mt-12"}`}
+        class="text-balance flex flex-col"
         transition:name={`card ${data.id} heading`}
       >
-        <h1 class="text-3xl font-semibold uppercase leading-none font-tertiary mb-2">
-          「{title}」
-        </h1>
-        <h2 class="text-lg font-tertiary">
+      <h1 class="relative text-3xl font-tertiary inline-flex items-center">
+          <span class="absolute -top-[0.25em] -left-[0.5em]">「</span>
+          <span class="mx-auto">{title} {data.id}</span>
+          <span class="absolute -bottom-[0.25em] -right-[0.5em]">」</span>
+      </h1>
+      {asHeader && (
+        <h2 class="text-sm font-tertiary">
           {subtitle}
         </h2>
+        )
+      }
+      <!-- meta -->
       </div>
       {asHeader && (
         <>
-          {metadata && <Metadata metadata={metadata} font="tertiary" />}
+          {metadata && <Metadata metadata={metadata} font="tertiary" class="mt-2"/>}
           {description && (
-            <p class="text-sm" transition:animate="fade">
+            <p class="text-sm mx-4" transition:animate="fade">
               {description}
+              {plainify(description.slice(0, Number(summary_length)))}
             </p>
           )}
         </>
       )}
     </div>
-  </SecondTag>
+  </HeadingTag>
   </SubTag>
 
   <!-- card image -->
   <div
-    class="mt-auto w-full overflow-hidden rounded-b-3xl"
+    class="absolute h-[15rem] bottom-0 overflow-hidden rounded-b-3xl"
     transition:name={`card ${data.id} media box`}
   >
     <ImageMod
       src={image}
-      height={500}
+      height={800}
       width={1200}
       alt={title}
-      class="w-full rounded-b-3xl transition-all transition-duration-300"
+      class="h-full object-cover rounded-b-3xl transition-all transition-duration-300"
       format="webp"
       transition:persist={`card ${data.id} media`}
     />

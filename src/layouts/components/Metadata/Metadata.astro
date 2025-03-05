@@ -1,7 +1,7 @@
 ---
 import Value from "./Value.astro";
 
-import { FaHourglassEnd, FaUsers, FaDatabase } from "react-icons/fa6";
+import { FaHourglassEnd, FaUser, FaUsers, FaDatabase } from "react-icons/fa6";
 
 const { metadata, font } = Astro.props;
 
@@ -27,7 +27,7 @@ const metadataArray = Object.entries(metadata).map(([key, value]) => ({
             case "type":
               return (
                 <span class="w-3">
-                  <FaUsers />
+                  {value === "Solo" ? <FaUser /> : <FaUsers />}
                 </span>
               );
             case "size":
