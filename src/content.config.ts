@@ -94,6 +94,7 @@ const aboutCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/about" }),
   schema: z.object({
     title: z.string(),
+    subtitle: z.string(),
     meta_title: z.string().optional(),
     description: z.string().optional(),
     image: z.string().optional(),

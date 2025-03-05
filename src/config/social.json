@@ -1,6 +1,11 @@
 {
   "main": [
     {
+      "name": "whatsapp",
+      "icon": "IoLogoWhatsapp",
+      "link": "https:/wa.me/6281809395517"
+    },
+    {
       "name": "e-mail",
       "icon": "FaEnvelope",
       "link": "mailto:ahmadbukhariwork@gmail.com"
