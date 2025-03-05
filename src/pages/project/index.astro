@@ -16,10 +16,6 @@ const projectIndex = (await getEntry(
 )) as CollectionEntry<"project">;
 const projects = await getSinglePage(PROJECT_FOLDER);
 const sortedProjects = sortByDate(projects);
-const totalPages: number = Math.ceil(
-  projects.length / config.settings.pagination,
-);
-const currentProjects = sortedProjects.slice(0, config.settings.pagination);
 ---
 
 <Base

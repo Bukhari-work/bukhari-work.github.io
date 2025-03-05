@@ -62,7 +62,7 @@ const HeadingTag = asHeader? 'div' : 'header';
 ---
 
 <MainTag
-  href={asHeader ? undefined : `${project_folder}/${data.id}`}
+  href={asHeader ? undefined : `/${project_folder}/${data.id}`}
   class:list={[
     "card card-project",
     `${asHeader ? "min-h-[calc(100svh-112px)] max-h-[calc(100svh-112px)] lg:sticky top-10 lg:top-24" : "card-hover card-project-hover"}`,
@@ -80,9 +80,11 @@ const HeadingTag = asHeader? 'div' : 'header';
     asHeader && (
     <!-- card back arrow -->
     <a
-      href={`${project_folder}`}
+      href={`/${project_folder}`}
       transition:animate={slide({ duration: "0.5s" })}
-      class="focus-visible:outline-inherit absolute left-4 top-3 z-10 flex h-8 items-center rounded-lg px-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-orange active:bg-shark-active"
+      class="absolute left-4 top-5 z-10 flex h-8 items-center rounded-lg px-2
+      focus-visible:outline-inherit focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-orange
+      active:bg-shark-active"
     >
       <span class="sr-only">Go Back</span>
       <svg
@@ -148,12 +150,12 @@ const HeadingTag = asHeader? 'div' : 'header';
     <div class="flex flex-col gap-4 text-center my-auto">
       <!-- title and subtitle -->
       <div
-        class="text-balance flex flex-col"
+        class="text-balance flex flex-col gap-4"
         transition:name={`card ${data.id} heading`}
       >
       <h1 class="relative text-3xl font-tertiary inline-flex items-center">
           <span class="absolute -top-[0.25em] -left-[0.5em]">「</span>
-          <span class="mx-auto">{title} {data.id}</span>
+          <span class="mx-auto">{title}</span>
           <span class="absolute -bottom-[0.25em] -right-[0.5em]">」</span>
       </h1>
       {asHeader && (
