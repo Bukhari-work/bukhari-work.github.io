@@ -80,6 +80,7 @@ const HeadingTag = asHeader? 'div' : 'header';
     asHeader && (
     <!-- card back arrow -->
     <a
+      title={"Back to project page"}
       href={`/${project_folder}`}
       transition:animate={slide({ duration: "0.5s" })}
       class="absolute left-4 top-5 z-10 flex h-8 items-center rounded-lg px-2
@@ -147,19 +148,19 @@ const HeadingTag = asHeader? 'div' : 'header';
     </div>
 
     <!-- title, subtitle, and meta -->
-    <div class="flex flex-col gap-4 text-center my-auto">
+    <div class={`flex flex-col gap-4 text-center my-auto`}>
       <!-- title and subtitle -->
       <div
         class="text-balance flex flex-col gap-4"
         transition:name={`card ${data.id} heading`}
       >
-      <h1 class="relative text-3xl font-tertiary inline-flex items-center">
+      <h1 class={`relative text-3xl font-tertiary inline-flex items-center ${colors.text}`}>
           <span class="absolute -top-[0.25em] -left-[0.5em]">「</span>
           <span class="mx-auto">{title}</span>
           <span class="absolute -bottom-[0.25em] -right-[0.5em]">」</span>
       </h1>
       {asHeader && (
-        <h2 class="text-sm font-tertiary">
+        <h2 class={`text-sm font-tertiary ${colors.text}`}>
           {subtitle}
         </h2>
         )
@@ -170,9 +171,8 @@ const HeadingTag = asHeader? 'div' : 'header';
         <>
           {metadata && <Metadata metadata={metadata} font="tertiary" class="mt-2"/>}
           {description && (
-            <p class="text-sm mx-4" transition:animate="fade">
+            <p class="text-sm mx-0 font-tertiary" transition:animate="fade">
               {description}
-              {plainify(description.slice(0, Number(summary_length)))}
             </p>
           )}
         </>

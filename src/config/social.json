@@ -11,14 +11,14 @@
       "link": "mailto:ahmadbukhariwork@gmail.com"
     },
     {
-      "name": "github",
-      "icon": "FaGithub",
-      "link": "https://github.com/Bukhari-work "
-    },
-    {
       "name": "linkedin",
       "icon": "FaLinkedin",
       "link": "https://www.linkedin.com/in/ahmad-bukhari-6112891b7/ "
+    },
+    {
+      "name": "github",
+      "icon": "FaGithub",
+      "link": "https://github.com/Bukhari-work "
     }
   ]
 }
