@@ -3,7 +3,6 @@ import config from "@/config/config.json";
 import ImageMod from "@/components/ImageMod.astro";
 import Avatar from "@/components/Avatar.astro";
 import Metadata from "@/components/Metadata/Metadata.astro";
-import { plainify} from "@/lib/utils/textConverter";
 import { slide } from "astro:transitions";
 
 // Define prop types
@@ -121,6 +120,7 @@ const HeadingTag = asHeader? 'div' : 'header';
         postDate={date}
         resolution={200}
         slug={data.id}
+        loading="eager"
         isStacked={asHeader ? true: undefined}
       />
       <button
@@ -192,6 +192,7 @@ const HeadingTag = asHeader? 'div' : 'header';
       width={1200}
       alt={title}
       class="h-full object-cover rounded-b-3xl transition-all transition-duration-300"
+      loading="eager"
       format="webp"
       transition:persist={`card ${data.id} media`}
     />

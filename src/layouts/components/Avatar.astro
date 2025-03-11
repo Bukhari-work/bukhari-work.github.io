@@ -1,7 +1,14 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
 
-const { author, postDate, slug, resolution, isStacked = false } = Astro.props;
+const {
+  author,
+  postDate,
+  slug,
+  resolution,
+  loading,
+  isStacked = false,
+} = Astro.props;
 
 function getInitials(name: string) {
   const words = name.split(" ");
@@ -23,6 +30,7 @@ function getInitials(name: string) {
         height={resolution}
         width={resolution}
         alt=""
+        loading={loading}
         class:list={[
           "object-cover outline-inherit rounded-full bg-black/20 outline outline-2 outline-offset-2",
           {
