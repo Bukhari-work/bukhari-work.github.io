@@ -81,13 +81,44 @@
 
 // swiper pagination
 .testimonial-slider-pagination {
+  @apply flex mt-9 items-center justify-center text-center;
+
   .swiper-pagination-bullet {
-    @apply h-2.5 w-2.5 bg-border opacity-100 dark:bg-darkmode-border;
+    @apply h-2.5 w-2.5 bg-darkmode-border dark:bg-border;
 
     &-active {
-      @apply h-4 w-4 bg-primary dark:bg-darkmode-primary;
+      @apply h-4 w-4 bg-primary dark:bg-darkmode-primary
+      transition-colors duration-1000 ease-in-out;
     }
   }
+}
+
+// Disable pointer events for non-active slides
+.swiper-slide:not(.swiper-slide-active) {
+  pointer-events: none;
+}
+
+/* Swiper navigation buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  @apply absolute;
+
+  @apply hidden md:flex;
+
+  @apply top-1/2 z-10 h-11 w-11 mx-10
+  -translate-y-1/2 transform
+  items-center justify-center rounded-full text-xl
+  text-white bg-black hover:bg-black/60
+  dark:text-black dark:bg-white dark:hover:bg-white/60;
+
+  @apply cursor-pointer;
+}
+
+.swiper-button-prev {
+  @apply left-2;
+}
+.swiper-button-next {
+  @apply right-2;
 }
 
 // tab

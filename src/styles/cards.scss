@@ -19,7 +19,8 @@
 }
 
 .card-project-hover:hover {
-  @apply shadow-light dark:shadow-light;
+  @apply lg:shadow-lg lg:shadow-light lg:dark:shadow-light;
+  transform: scale(0.95) translateY(1rem);
 }
 
 .card-button {

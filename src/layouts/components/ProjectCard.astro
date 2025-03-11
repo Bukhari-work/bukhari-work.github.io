@@ -65,7 +65,7 @@ const HeadingTag = asHeader? 'div' : 'header';
   href={asHeader ? undefined : `/${project_folder}/${data.id}`}
   class:list={[
     "card card-project",
-    `${asHeader ? "min-h-[calc(100svh-112px)] max-h-[calc(100svh-112px)] lg:sticky top-10 lg:top-24" : "card-hover card-project-hover"}`,
+    `${asHeader ? "min-h-[calc(100svh-112px)] max-h-[calc(100svh-112px)] lg:sticky top-10 lg:top-24" : "card-project-hover"}`,
     colors.text,
   ]}
   transition:name={`card ${data.id} core`}
