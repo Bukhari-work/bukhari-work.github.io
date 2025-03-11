@@ -112,6 +112,7 @@
   dark:text-black dark:bg-white dark:hover:bg-white/60;
 
   @apply cursor-pointer;
+  user-select: none;
 }
 
 .swiper-button-prev {
