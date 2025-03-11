@@ -1,4 +1,3 @@
-import React from "react";
 import type { FC, ReactElement } from "react";
 import { FaJava, FaFileExcel, FaDatabase } from "react-icons/fa6";
 import {

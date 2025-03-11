@@ -1,5 +1,5 @@
 import { marked } from "marked";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Tabs = ({
   children,
