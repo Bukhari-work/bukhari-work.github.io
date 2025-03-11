@@ -2,8 +2,15 @@
 import config from "@/config/config.json";
 import ImageMod from "./ImageMod.astro";
 
-const { src, srcDarkmode }: { src?: string; srcDarkmode?: string } =
-  Astro.props;
+const {
+  src,
+  srcDarkmode,
+  loading,
+}: {
+  src?: string;
+  srcDarkmode?: string;
+  loading?: "eager" | "lazy" | null | undefined;
+} = Astro.props;
 
 interface logoProps {
   logo: string;
@@ -30,6 +37,7 @@ const { theme_switcher }: { theme_switcher: boolean } = config.settings;
           width={logo_width.replace("px", "")}
           height={logo_height.replace("px", "")}
           alt={title}
+          loading={loading}
           style={{
             height: logo_height.replace("px", ""),
             width: logo_width.replace("px", ""),
@@ -42,6 +50,7 @@ const { theme_switcher }: { theme_switcher: boolean } = config.settings;
             width={logo_width.replace("px", "")}
             height={logo_height.replace("px", "")}
             alt={title}
+            loading={loading}
             style={{
               height: logo_height.replace("px", ""),
               width: logo_width.replace("px", ""),
