@@ -15,18 +15,18 @@ interface Author {
   avatar: string;
 }
 
-export interface Project {
+export interface ProjectData {
   title: string;
-  subtitle: string;
-  image: string;
+  subtitle?: string;
+  image?: string;
   date?: Date;
   description?: string;
-  author: Author;
-  company: string;
+  author?: Author;
+  company: string | "Company";
   metadata?: Metadata;
   status?: string;
   skills: string[];
-  colors: {
+  colors?: {
     text: string;
     background: string;
   };
@@ -47,7 +47,7 @@ const {
   skills,
   colors,
   draft,
-} = project.data as Project;
+} = project.data as ProjectData;
 
 const { Content } = await render(project);
 ---
