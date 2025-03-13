@@ -24,7 +24,7 @@
   },
 
   "params": {
-    "contact_form_action": "http://localhost:3000/contact",
+    "contact_form_url": "https://script.google.com/macros/s/AKfycbzt--3-MoMu2vvNydiKtciRadApd1NI9-dPiJJAQ6Ydqj3Q8howyXO_GPiExpjS4Zxjxw/exec",
     "copyright": "©2025 Ahmad Bukhari. All rights reserved.",
     "credit": "Made with [Astro](https://astro.build) using [Astroplate](https://github.com/zeon-studio/astroplate) template"
   },
@@ -33,12 +33,6 @@
     "enable": true,
     "label": "Hire Me! :D",
     "link": "https://www.linkedin.com/in/ahmad-bukhari-6112891b7/"
-  },
-
-  "disqus": {
-    "enable": false,
-    "shortname": "",
-    "settings": {}
   },
 
   "metadata": {
