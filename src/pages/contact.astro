@@ -25,8 +25,13 @@ const { title, description, meta_title, image } = contact.data;
       <div class="row">
         <div class="mx-auto md:col-10 lg:col-6">
           <!-- Add success message container -->
-          <div id="successMessage" class="hidden mt-6">
-            <Notice type="success" color="text-primary text-darkmode-primary">
+          <div
+            id="successMessage"
+            class="mt-6
+            hidden opacity-0 translate-y-4
+            transition-all duration-300 ease-in-out"
+          >
+            <Notice type="success">
               <span id="successMessageText"></span>
             </Notice>
           </div>
@@ -89,13 +94,6 @@ const { title, description, meta_title, image } = contact.data;
         const successMessage = document.getElementById("successMessage");
         const url = e.target.dataset.contactUrl;
 
-        console.log("Submitting to:", url);
-        console.log("Form data:", {
-          name: form.name.value,
-          email: form.email.value,
-          message: form.message.value,
-        });
-
         try {
           // Basic validation
           const name = form.name.value.trim();
@@ -136,27 +134,36 @@ const { title, description, meta_title, image } = contact.data;
                 <div>Your message:</div>
                 <div>${message.substring(0, 50)}...</div>
               </div>
-              <div class="mt-4">I'll respond to <strong>${form.email.value.trim()}</strong> within 24 hours.</div>
+              <div class="mt-4">I'll respond to <strong>${email}</strong> within 24 hours.</div>
             `;
 
-            // Show and animate the success message
+            form.reset();
+
+            // Scroll to top
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+
+            // Then show and animate the success message
             successMessage.classList.remove("hidden");
-            successMessage.style.opacity = 0;
-            successMessage.style.transform = "translateY(10px)";
+            successMessage.offsetWidth; // Force reflow for CSS
 
             // Animate entrance
-            setTimeout(() => {
-              successMessage.style.transition = "all 0.3s ease";
-              successMessage.style.opacity = 1;
-              successMessage.style.transform = "translateY(0)";
-            }, 50);
+            successMessage.classList.remove("opacity-0", "translate-y-4");
+            successMessage.classList.add("opacity-100", "translate-y-0");
 
-            // Show success message and reset form
-            successMessage.classList.remove("hidden");
-            form.reset();
+            // Automatically hide after some seconds with exit animation
             setTimeout(() => {
-              successMessage.classList.add("hidden");
-            }, 50000);
+              // Trigger exit animation
+              successMessage.classList.remove("opacity-100", "translate-y-0");
+              successMessage.classList.add("opacity-0", "translate-y-4");
+
+              // Wait for animation to complete before hiding
+              setTimeout(() => {
+                successMessage.classList.add("hidden");
+              }, 300); // Match transition duration
+            }, 6000);
           } else {
             throw new Error(result.message || "Submission failed");
           }
