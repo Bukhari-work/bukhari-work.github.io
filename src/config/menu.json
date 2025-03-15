@@ -13,30 +13,11 @@
       "url": "/project"
     },
     {
-      "name": "Blog",
-      "url": "/blog",
-      "hasChildren": false,
-      "children": [
-        {
-          "name": "Authors",
-          "url": "/authors"
-        },
-        {
-          "name": "Categories",
-          "url": "/categories"
-        },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        }
-      ]
+      "name": "Contact",
+      "url": "/contact"
     }
   ],
   "footer": [
-    {
-      "name": "Elements",
-      "url": "/elements"
-    },
     {
       "name": "Privacy Policy",
       "url": "/privacy-policy"
