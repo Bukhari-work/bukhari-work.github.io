@@ -78,9 +78,16 @@ const { title, description, meta_title, image } = contact.data;
                 placeholder="Message goes here..."
                 rows="8"></textarea>
             </div>
-            <button id="submitBtn" type="submit" class="btn btn-primary"
-              >Submit</button
+            <button
+              id="submitBtn"
+              type="submit"
+              class="btn btn-primary g-recaptcha"
+              data-sitekey="6LcmXPUqAAAAAGfxbIxXxOPco0BoRsgC3gXqO7pg"
+              data-callback="onSubmit"
+              data-action="submit"
             >
+              Submit
+            </button>
           </form>
         </div>
       </div>
@@ -89,7 +96,7 @@ const { title, description, meta_title, image } = contact.data;
 
   <script
     is:inline
-    src="https://www.google.com/recaptcha/enterprise.js?render=6LcmXPUqAAAAAGfxbIxXxOPco0BoRsgC3gXqO7pg"
+    src="https://www.google.com/recaptcha/enterprise.js?render=6LdagPUqAAAAAG4Gcms7jNA04h2lUoZzSl3vm8qF"
   ></script>
   <script is:inline>
     document
