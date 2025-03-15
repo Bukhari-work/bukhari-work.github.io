@@ -89,7 +89,7 @@ const { title, description, meta_title, image } = contact.data;
 
   <script
     is:inline
-    src={`https://www.google.com/recaptcha/api.js?render=${"6LfEXfUqAAAAAF6V-Ee-iqr8f9fSCPf9syf_pXZi"}`}
+    src="https://www.google.com/recaptcha/enterprise.js?render=6LcmXPUqAAAAAGfxbIxXxOPco0BoRsgC3gXqO7pg"
   ></script>
   <script is:inline>
     document
@@ -123,10 +123,14 @@ const { title, description, meta_title, image } = contact.data;
           submitBtn.textContent = "Submitting...";
           submitBtn.classList.remove("btn-primary");
 
+          // Ensure grecaptcha is loaded before executing
+          if (typeof grecaptcha === "undefined") {
+            throw new Error("reCaptcha is not loaded. Please try again later.");
+          }
           // Execute reCaptcha and get token
-          await new Promise((resolve) => grecaptcha.ready(resolve));
-          const token = await grecaptcha.execute(
-            "6LfEXfUqAAAAAF6V-Ee-iqr8f9fSCPf9syf_pXZi",
+          await new Promise((resolve) => grecaptcha.enterprise.ready(resolve));
+          const token = await grecaptcha.enterprise.execute(
+            "6LcmXPUqAAAAAGfxbIxXxOPco0BoRsgC3gXqO7pg",
             { action: "submit" },
           );
 
