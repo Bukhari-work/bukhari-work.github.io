@@ -5,26 +5,38 @@ description: "this is meta description"
 draft: false
 ---
 
-#### Responsibility of Contributors
+This Privacy Policy explains how your information is collected, used, and protected when you visit my portfolio website.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+### Information Collection
+I don’t intentionally collect personal information on this website. However, certain data may be automatically collected by third-party services, such as analytics tools, to help understand website traffic and improve user experience. This data may include:
+- Your IP address
+- Browser type and version
+- Pages visited and time spent on each page
+- Referring site or source
 
-pretium, aliquam sit. Praesent elementum magna amet, tincidunt eros, nibh in leo. Malesuada purus, lacus, at aliquam suspendisse tempus. Quis tempus amet, velit nascetur sollicitudin. At sollicitudin eget amet in. Eu velit nascetur sollicitudin erhdfvssfvrgss eget viverra nec elementum. Lacus, facilisis tristique lectus in.
+### Use of Information
+Any data collected is used strictly for the following purposes:
+- Analyzing website traffic and performance
+- Improving content and functionality
+- Ensuring the security and proper functioning of the website
 
-#### Gathering of Personal Information
+### Cookies
+This website may use cookies to enhance user experience and gather analytics data. You can choose to disable cookies through your browser settings if you prefer.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+### Third-Party Links
+My portfolio may contain links to third-party websites or projects. I’m not responsible for the privacy practices or content of those external sites.
 
-#### Protection of Personal- Information
+### Data Security
+I take reasonable measures to protect any data collected, but please be aware that no method of transmission over the internet is entirely secure.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus.
+### Your Rights
+You have the right to request information about any personal data collected (if any) and to request its deletion.
 
-Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat
+### Changes to This Policy
+I may update this Privacy Policy from time to time. Any changes will be reflected on this page.
 
-#### Privacy Policy Changes
+### Contact
+If you have any questions or concerns about this Privacy Policy, please reach out to me through my email:
+*ahmadbukhariwork@gmail.com*
 
-1. Sll the Themefisher items are designed to be with the latest , We check all
-2. comments that threaten or harm the reputation of any person or organization
-3. personal information including, but limited to, email addresses, telephone numbers
-4. Any Update come in The technology Customer will get automatic Notification.
+Effective Date: [March 2025]

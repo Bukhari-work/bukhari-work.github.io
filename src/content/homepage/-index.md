@@ -6,8 +6,9 @@ banner:
   image: "/images/banner.png"
   button:
     enable: true
-    label: "Explore My Work"
-    link: "project"
+    label: "Resume"
+    link: "/Ahmad%20Bukhari%20CV.pdf"
+    fileName: "Ahmad Bukhari_CV.pdf"
 
 # Features
 features:

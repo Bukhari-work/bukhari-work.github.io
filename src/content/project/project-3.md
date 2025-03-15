@@ -1,8 +1,8 @@
 ---
-title: "Project Name"
+title: "Project 3"
 subtitle: "A data-driven application project"
-image: "/images/Project_name.png"
-date: 2022-04-04T05:00:00Z
+image: "/images/project/LBsql-cover.png"
+date: 2022-04-04T05:00:00+07:00
 description: "This is a meta description."
 author:
   name: "Ahmad Bukhari"

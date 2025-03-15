@@ -1,81 +1,78 @@
 ---
-title: "Project Name Project Name Project Name"
-subtitle: "A data-driven application project"
-image: "/images/Project_name.png"
-date: 2022-04-04T05:00:00Z
-description: "This is a meta description."
+title: "IEP Project"
+subtitle: "Insights into Stock Management and Sales Trends"
+image: "/images/project/IEP-cover.png"
+date: 2024-12-01T05:00:00+07:00
+description: "A detailed project to forecast demand for Q-cCommerce in August 2022, aimed at optimizing stock planning and ensuring customer satisfaction."
 author:
   name: "Ahmad Bukhari"
   avatar: "/images/avatar/ahmad-bukhari-anies.jpg"
 company: "RevoU"
 metadata:
-  hours: "100hrs"
-  type:  "Solo"
-  size:  "10GB"
+  hours: "20hrs"
+  type: "Solo"
+  size: "1400 rows"
 status: "Done"
-skills: ["nextjs", "tailwind"]
+skills: ["forecasting", "data analysis", "model evaluation"]
 colors:
   text: ""
-  background: "bg-[#7A9A9C] dark:bg-[#506A6C]"
+  background: "bg-[#FFDE3D] dark:bg-[#99841C]"
 draft: false
 ---
 
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+# Q-Commerce Demand Forecasting
+This project showcases my ability to apply forecasting techniques for data-driven inventory optimization, turning complex data into actionable insights for efficient stock planning in q-commerce.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+## Overview
+The **Q-Commerce Demand Forecasting** project was designed to optimize stock planning for a newly established e-commerce hub. By forecasting demand for **August 2022** with approximately **80% accuracy**, the project addressed past challenges related to stock mismanagement that led to revenue loss and customer dissatisfaction. Through comprehensive data analysis, model selection, and evaluation, the project delivers actionable insights into sales trends and inventory optimization.
 
-## Creative Design
+## Project Background
+In **January 2022**, a new hub was launched. However, previous months experienced significant challenges in stock planning that resulted in:
+- **Revenue Loss:** Incorrect stock levels led to missed sales opportunities.
+- **Customer Dissatisfaction:** Stock shortages caused delays and unfulfilled orders.
 
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+This project was initiated to ensure that the hub's inventory is efficiently managed, ultimately enhancing operational success and customer satisfaction.
 
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+## Problem & Objectives
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+### Problem Statement
+> **How can we forecast demand for August 2022 with approximately 80% accuracy to optimize stock levels?**
 
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+### Objectives
+The project set out to:
+- **Identify a Suitable Forecasting Method:** Evaluate various models to determine the most appropriate approach.
+- **Deliver an Accurate Demand Forecast:** Achieve around 80% accuracy in predicting demand for August 2022.
+- **Provide Actionable Insights:** Offer recommendations to improve stock planning and reduce losses.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+## Data & Methodology
+- **Data Source:** Historical sales and stock data provided insights into trends and seasonality.
+- **Methodological Steps:**
+  - **Preliminary Analysis:** Explored data to identify underlying patterns.
+  - **Stationarity Check:** Evaluated data stationarity to determine if transformation was needed.
+  - **Model Selection:** Applied the Holt-Winters method for non-stationary series due to its effectiveness in handling trends and seasonality.
+  - **Forecast Analysis:** Generated forecasts and evaluated them using error metrics like Mean Absolute Percentage Error (MAPE) and Mean Absolute Error (MAE).
 
-## Creative Design
+## Forecasting Models & Analysis
+The forecasting process included several critical steps:
+- **Model Selection:** Choosing the appropriate forecasting model based on data patterns.
+- **Pattern Identification & Stationarity Analysis:** Ensured that data trends were properly accounted for.
+- **Forecast Evaluation:** Assessed model performance using key error metrics.
 
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+**Evaluation Results:**
+- **High Errors (>90% MAPE):** Certain categories (e.g., C, G, and J) showed high relative errors, indicating poor model performance despite sometimes low absolute errors.
+- **Moderate Errors (70%-90% MAPE):** Categories F, H, and I exhibited moderate error levels, with some hubs demonstrating acceptable performance.
+- **Better Errors (<70% MAPE):** A few instances, such as Category I in specific hubs, approached acceptable forecasting accuracy.
 
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+## Recommendations & Future Steps
+Based on the evaluation, several recommendations were proposed:
+- **Optimize Stock Planning:** Use the forecast to align inventory levels more closely with anticipated demand.
+- **Model Refinement:** Improve forecast accuracy for categories with high error rates by exploring additional data features or alternative models.
+- **Promotional Insights:** Analyze the impact of promotions on sales to further refine forecasting during promotional periods.
+- **Continuous Forecasting:** Implement a dynamic forecasting framework that leverages real-time data for ongoing accuracy improvements.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+## Conclusion
+The **Q-cCommerce Demand Forecasting** project successfully demonstrates how a structured approach to demand forecasting can enhance stock management. By achieving around 80% accuracy for August 2022, the project not only addressed immediate inventory challenges but also laid the groundwork for continuous improvements in forecasting practices.
 
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+*Ahmad Bukhari – IEP QuickU (Mock :p Company)*
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Creative Design
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Creative Design
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Creative Design
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+For a deeper dive into the project methodology and results, refer to the accompanying Colab notebook linked in the original presentation.
