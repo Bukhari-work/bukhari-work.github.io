@@ -40,6 +40,9 @@ const { title, description, meta_title, image } = contact.data;
             method="POST"
             data-contact-url={config.params.contact_form_url}
           >
+            <div class="hidden" aria-hidden="true">
+              <input type="checkbox" name="botcheck" class="hidden" />
+            </div>
             <div class="mb-6">
               <label for="name" class="form-label">
                 Full Name <span class="text-red-500">*</span>
@@ -83,11 +86,22 @@ const { title, description, meta_title, image } = contact.data;
       </div>
     </div>
   </section>
+
+  <script
+    is:inline
+    src={`https://www.google.com/recaptcha/api.js?render=${"6LfEXfUqAAAAAF6V-Ee-iqr8f9fSCPf9syf_pXZi"}`}
+  ></script>
   <script is:inline>
     document
       .getElementById("contactForm")
       .addEventListener("submit", async (e) => {
         e.preventDefault();
+
+        // Honeypot check
+        if (form.botcheck.checked) {
+          alert("Bot detected!");
+          return;
+        }
 
         const form = e.target;
         const submitBtn = document.getElementById("submitBtn");
