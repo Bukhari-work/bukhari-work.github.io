@@ -123,6 +123,13 @@ const { title, description, meta_title, image } = contact.data;
           submitBtn.textContent = "Submitting...";
           submitBtn.classList.remove("btn-primary");
 
+          // Execute reCaptcha and get token
+          await new Promise((resolve) => grecaptcha.ready(resolve));
+          const token = await grecaptcha.execute(
+            "6LfEXfUqAAAAAF6V-Ee-iqr8f9fSCPf9syf_pXZi",
+            { action: "submit" },
+          );
+
           // Send form data
           const response = await fetch(url, {
             method: "POST",
@@ -130,6 +137,7 @@ const { title, description, meta_title, image } = contact.data;
               name: name,
               email: email,
               message: message,
+              recaptchaToken: token,
             }),
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
