@@ -126,6 +126,8 @@ const homepageCollection = defineCollection({
         enable: z.boolean(),
         label: z.string(),
         link: z.string(),
+        isDownload: z.boolean().optional(),
+        fileName: z.string().optional(),
       }),
     }),
     features: z.array(
