@@ -1,6 +1,8 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
 import { markdownify } from "@/lib/utils/textConverter";
+import Button from "@/shortcodes/Button";
+
 const { call_to_action } = Astro.props;
 ---
 
@@ -29,14 +31,15 @@ const { call_to_action } = Astro.props;
                 set:html={markdownify(call_to_action.data.description)}
                 class="mb-6"
               />
-              {call_to_action.data.button.enable && (
-                <a
-                  class="btn btn-primary"
-                  href={call_to_action.data.button.link}
-                >
-                  {call_to_action.data.button.label}
-                </a>
-              )}
+              {
+                call_to_action.data.button.enable && (
+                  <Button
+                    label={call_to_action.data.button.label},
+                    link={call_to_action.data.button.link},
+                    fileName={call_to_action.data.button.fileName? call_to_action.data.button.fileName: undefined},
+                  />
+                )
+              }
             </div>
           </div>
         </div>

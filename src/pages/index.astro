@@ -96,8 +96,8 @@ const { banner, features } = homepage.data as Homepage;
             </div>
             <div class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}>
               <h2 set:html={markdownify(feature.title)} class="mb-4" />
-              <p set:html={markdownify(feature.content)} class="mb-8 text-lg" />
-              <ul>
+              <p set:html={markdownify(feature.content)} class="mb-6 text-lg" />
+              <ul class="mb-10">
                 {feature.bulletpoints.map((bullet: string) => (
                   <li class="relative mb-4 pl-6">
                     <FaCheck className={"absolute left-0 top-1.5"} />
@@ -105,11 +105,15 @@ const { banner, features } = homepage.data as Homepage;
                   </li>
                 ))}
               </ul>
-              {feature.button.enable && (
-                <a class="btn btn-primary mt-5" href={feature.button.link}>
-                  {feature.button.label}
-                </a>
-              )}
+              {
+                feature.button.enable && (
+                  <Button
+                    label={feature.button.label},
+                    link={feature.button.link},
+                    fileName={feature.button.fileName? feature.button.fileName: undefined},
+                  />
+                )
+              }
             </div>
           </div>
         </div>
