@@ -4,7 +4,8 @@ import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import Testimonial from "@/partials/Testimonial.astro";
-import type { Button, Feature } from "@/types";
+import Button from "@/shortcodes/Button";
+import type { Button as ButtonType, Feature } from "@/types";
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
 import { FaCheck } from "react-icons/fa6";
@@ -14,7 +15,7 @@ interface Homepage {
     title: string;
     content: string;
     image: string;
-    button: Button;
+    button: ButtonType;
   };
   features: Feature[];
 }
@@ -50,16 +51,11 @@ const { banner, features } = homepage.data as Homepage;
           <p set:html={markdownify(banner.content)} class="mb-8" />
           {
             banner.button.enable && (
-              <a
-                class="btn btn-primary"
-                href={banner.button.link}
-                target={
-                  banner.button.link.startsWith("http") ? "_blank" : "_self"
-                }
-                rel="noopener"
-              >
-                {banner.button.label}
-              </a>
+              <Button
+                label={banner.button.label},
+                link={banner.button.link},
+                fileName={banner.button.fileName? banner.button.fileName: undefined},
+              />
             )
           }
         </div>

@@ -10,4 +10,6 @@ export type Button = {
   enable: boolean;
   label: string;
   link: string;
+  isDownload?: boolean;
+  fileName?: string;
 };
