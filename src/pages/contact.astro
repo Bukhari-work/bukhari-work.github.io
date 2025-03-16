@@ -82,7 +82,7 @@ const { title, description, meta_title, image } = contact.data;
               id="submitBtn"
               type="submit"
               class="btn btn-primary g-recaptcha"
-              data-sitekey="6LcmXPUqAAAAAGfxbIxXxOPco0BoRsgC3gXqO7pg"
+              data-sitekey="6LdagPUqAAAAAG4Gcms7jNA04h2lUoZzSl3vm8qF"
               data-callback="onSubmit"
               data-action="submit"
             >
@@ -134,10 +134,11 @@ const { title, description, meta_title, image } = contact.data;
           if (typeof grecaptcha === "undefined") {
             throw new Error("reCaptcha is not loaded. Please try again later.");
           }
+
           // Execute reCaptcha and get token
           await new Promise((resolve) => grecaptcha.enterprise.ready(resolve));
           const token = await grecaptcha.enterprise.execute(
-            "6LcmXPUqAAAAAGfxbIxXxOPco0BoRsgC3gXqO7pg",
+            "6LdagPUqAAAAAG4Gcms7jNA04h2lUoZzSl3vm8qF",
             { action: "submit" },
           );
 
