@@ -83,7 +83,7 @@ const { title, description, meta_title, image } = contact.data;
               type="submit"
               class="btn btn-primary g-recaptcha"
               data-sitekey="6LdagPUqAAAAAG4Gcms7jNA04h2lUoZzSl3vm8qF"
-              data-callback="submit"
+              data-callback="onSubmit"
               data-action="submit"
             >
               Submit
@@ -94,10 +94,8 @@ const { title, description, meta_title, image } = contact.data;
     </div>
   </section>
 
-  <script
-    is:inline
-    src="https://www.google.com/recaptcha/enterprise.js?render=6LdagPUqAAAAAG4Gcms7jNA04h2lUoZzSl3vm8qF"
-  ></script>
+  <script is:inline src="https://www.google.com/recaptcha/api.js"></script>
+
   <script is:inline>
     document
       .getElementById("contactForm")
@@ -136,8 +134,8 @@ const { title, description, meta_title, image } = contact.data;
           }
 
           // Execute reCaptcha and get token
-          await new Promise((resolve) => grecaptcha.enterprise.ready(resolve));
-          const token = await grecaptcha.enterprise.execute(
+          await new Promise((resolve) => grecaptcha.ready(resolve));
+          const token = await grecaptcha.execute(
             "6LdagPUqAAAAAG4Gcms7jNA04h2lUoZzSl3vm8qF",
             { action: "submit" },
           );
