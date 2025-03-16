@@ -94,7 +94,10 @@ const { title, description, meta_title, image } = contact.data;
     </div>
   </section>
 
-  <script is:inline src="https://www.google.com/recaptcha/api.js"></script>
+  <script
+    is:inline
+    src="https://www.google.com/recaptcha/enterprise.js?render=6LdagPUqAAAAAG4Gcms7jNA04h2lUoZzSl3vm8qF"
+  ></script>
 
   <script is:inline>
     document
@@ -102,16 +105,16 @@ const { title, description, meta_title, image } = contact.data;
       .addEventListener("submit", async (e) => {
         e.preventDefault();
 
+        const form = e.target;
+        const submitBtn = document.getElementById("submitBtn");
+        const successMessage = document.getElementById("successMessage");
+        const url = form.dataset.contactUrl;
+
         // Honeypot check
         if (form.botcheck.checked) {
           alert("Bot detected!");
           return;
         }
-
-        const form = e.target;
-        const submitBtn = document.getElementById("submitBtn");
-        const successMessage = document.getElementById("successMessage");
-        const url = e.target.dataset.contactUrl;
 
         try {
           // Basic validation
@@ -129,13 +132,16 @@ const { title, description, meta_title, image } = contact.data;
           submitBtn.classList.remove("btn-primary");
 
           // Ensure grecaptcha is loaded before executing
-          if (typeof grecaptcha === "undefined") {
+          if (typeof grecaptcha === "undefined" || !grecaptcha.enterprise) {
             throw new Error("reCaptcha is not loaded. Please try again later.");
           }
 
           // Execute reCaptcha and get token
-          await new Promise((resolve) => grecaptcha.ready(resolve));
-          const token = await grecaptcha.execute(
+          await new Promise((resolve, reject) => {
+            grecaptcha.enterprise.ready(() => resolve());
+          });
+
+          const token = await grecaptcha.enterprise.execute(
             "6LdagPUqAAAAAG4Gcms7jNA04h2lUoZzSl3vm8qF",
             { action: "submit" },
           );
@@ -157,9 +163,7 @@ const { title, description, meta_title, image } = contact.data;
           const result = await response.json();
 
           if (result.status === "success") {
-            // Update success message with personalized text
             const successText = document.getElementById("successMessageText");
-
             successText.innerHTML = `
               Thank you, <strong>${name}</strong>! 🌟
               <div class="mt-4 p-3 border rounded-lg">
@@ -172,36 +176,26 @@ const { title, description, meta_title, image } = contact.data;
             form.reset();
 
             // Scroll to top
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            });
+            window.scrollTo({ top: 0, behavior: "smooth" });
 
-            // Then show and animate the success message
+            // Show and animate success message
             successMessage.classList.remove("hidden");
-            successMessage.offsetWidth; // Force reflow for CSS
-
-            // Animate entrance
+            successMessage.offsetWidth;
             successMessage.classList.remove("opacity-0", "translate-y-4");
             successMessage.classList.add("opacity-100", "translate-y-0");
 
             // Automatically hide after some seconds with exit animation
             setTimeout(() => {
-              // Trigger exit animation
               successMessage.classList.remove("opacity-100", "translate-y-0");
               successMessage.classList.add("opacity-0", "translate-y-4");
 
-              // Wait for animation to complete before hiding
               setTimeout(() => {
                 successMessage.classList.add("hidden");
-              }, 300); // Match transition duration
+              }, 300);
             }, 6000);
           } else {
             throw new Error(result.message || "Submission failed");
           }
-
-          // Inside response handling:
-          console.log("Response:", result);
         } catch (error) {
           alert(error.message);
         } finally {
