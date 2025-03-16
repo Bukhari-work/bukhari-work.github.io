@@ -131,16 +131,16 @@ const { title, description, meta_title, image } = contact.data;
         submitBtn.classList.remove("btn-primary");
 
         // Ensure grecaptcha is loaded before executing
-        if (typeof grecaptcha === "undefined" || !grecaptcha) {
+        if (typeof grecaptcha === "undefined" || !grecaptcha.enterprise) {
           throw new Error("reCaptcha is not loaded. Please try again later.");
         }
 
         // Execute reCaptcha and get token
         await new Promise((resolve, reject) => {
-          grecaptcha.ready(() => resolve());
+          grecaptcha.enterprise.ready(() => resolve());
         });
 
-        const token = await grecaptcha.execute(
+        const token = await grecaptcha.enterprise.execute(
           "6LdfBfYqAAAAAFIULe8Wl_X3hGIp3WTpcrpUMiO2",
           { action: "submit" },
         );
