@@ -21,6 +21,11 @@ const { title, description, meta_title, image } = contact.data;
 >
   <PageHeader title={title} />
   <section class="section-sm">
+    <script
+      is:inline
+      src="https://www.google.com/recaptcha/api.js?render=6LdfBfYqAAAAAFIULe8Wl_X3hGIp3WTpcrpUMiO2"
+      async
+      defer></script>
     <div class="container">
       <div class="row">
         <div class="mx-auto md:col-10 lg:col-6">
@@ -53,6 +58,7 @@ const { title, description, meta_title, image } = contact.data;
                 class="form-input"
                 placeholder="Budi Susanti"
                 type="text"
+                required
               />
             </div>
             <div class="mb-6">
@@ -65,6 +71,7 @@ const { title, description, meta_title, image } = contact.data;
                 class="form-input"
                 placeholder="budi.susanti@email.com"
                 type="email"
+                required
               />
             </div>
             <div class="mb-6">
@@ -76,14 +83,10 @@ const { title, description, meta_title, image } = contact.data;
                 name="message"
                 class="form-input"
                 placeholder="Message goes here..."
-                rows="8"></textarea>
+                rows="8"
+                required></textarea>
             </div>
-            <button
-              id="submitBtn"
-              type="submit"
-              class="btn btn-primary g-recaptcha"
-              data-sitekey="6LdfBfYqAAAAAFIULe8Wl_X3hGIp3WTpcrpUMiO2"
-            >
+            <button id="submitBtn" type="submit" class="btn btn-primary">
               Submit
             </button>
           </form>
@@ -92,8 +95,6 @@ const { title, description, meta_title, image } = contact.data;
     </div>
   </section>
 </Base>
-
-<script is:inline src="https://www.google.com/recaptcha/api.js"></script>
 
 <script is:inline>
   document
@@ -111,11 +112,13 @@ const { title, description, meta_title, image } = contact.data;
         alert("Bot detected!");
         return;
       }
+      console.log("no bot is detected");
 
       // Ensure grecaptcha is loaded before executing
       if (typeof grecaptcha === "undefined" || !grecaptcha) {
         throw new Error("reCaptcha is not loaded. Please try again later.");
       }
+      console.log("reCaptcha is defined");
 
       try {
         // Get the reCAPTCHA token
