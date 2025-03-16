@@ -95,9 +95,10 @@ const { title, description, meta_title, image } = contact.data;
   </section>
 </Base>
 
+<!-- Change the script source from enterprise.js to regular recaptcha -->
 <script
   is:inline
-  src="https://www.google.com/recaptcha/enterprise.js?render=6LdfBfYqAAAAAFIULe8Wl_X3hGIp3WTpcrpUMiO2"
+  src="https://www.google.com/recaptcha/api.js?render=6LdfBfYqAAAAAFIULe8Wl_X3hGIp3WTpcrpUMiO2"
 ></script>
 
 <script is:inline>
@@ -133,16 +134,17 @@ const { title, description, meta_title, image } = contact.data;
         submitBtn.classList.remove("btn-primary");
 
         // Ensure grecaptcha is loaded before executing
-        if (typeof grecaptcha === "undefined" || !grecaptcha.enterprise) {
+        if (typeof grecaptcha === "undefined" || !grecaptcha) {
           throw new Error("reCaptcha is not loaded. Please try again later.");
         }
 
         // Execute reCaptcha and get token
         await new Promise((resolve, reject) => {
-          grecaptcha.enterprise.ready(() => resolve());
+          grecaptcha.ready(() => resolve());
         });
 
-        const token = await grecaptcha.enterprise.execute(
+        // Change from enterprise.execute to regular execute
+        const token = await grecaptcha.execute(
           "6LdfBfYqAAAAAFIULe8Wl_X3hGIp3WTpcrpUMiO2",
           { action: "submit" },
         );
