@@ -112,13 +112,11 @@ const { title, description, meta_title, image } = contact.data;
         alert("Bot detected!");
         return;
       }
-      console.log("no bot is detected");
 
       // Ensure grecaptcha is loaded before executing
       if (typeof grecaptcha === "undefined" || !grecaptcha) {
         throw new Error("reCaptcha is not loaded. Please try again later.");
       }
-      console.log("reCaptcha is defined");
 
       try {
         // Get the reCAPTCHA token
