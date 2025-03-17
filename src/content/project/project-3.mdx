@@ -1,0 +1,152 @@
+---
+title: "VI Project"
+subtitle: "Leveraging data analytics to empower Indonesian MSMEs"
+image: "/images/project/VI_cover.png"
+date: 2025-01-13T05:00:00+07:00
+description: "A data-driven customer segmentation project connecting Indonesian MSMEs with government buyers."
+author:
+  name: "Ahmad Bukhari"
+  avatar: "/images/avatar/ahmad-bukhari-anies.jpg"
+company: "PaDi UMKM"
+metadata:
+  hours: "100hrs"
+  type: "Solo"
+  size: "10GB"
+status: "Done"
+skills: ["python", "data analysis", "machine learning", "k-means", "data visualization"]
+colors:
+  text: ""
+  background: "bg-[#5ED6E0] dark:bg-[#00858F]"
+draft: false
+---
+
+# PADI UMKM Customer Segmentation
+
+**Milestone:** 2 – Virtual Internship
+**By:** Ahmad Bukhari
+**Website:** [PaDi UMKM](https://www.padiumkm.id/)
+
+## Overview
+
+This project leverages data analytics to drive the mission of PaDi UMKM—connecting Indonesian MSMEs with government buyers. Through customer segmentation, the initiative not only enhances buyer relationships but also empowers MSME sellers by tailoring support based on their unique needs.
+
+## Project Background
+
+The rapid expansion of digital transactions among Indonesian MSMEs has generated a wealth of business data—from detailed order histories to comprehensive user interactions. Recognizing this trend, PaDi UMKM identified the pressing need for a robust monitoring system to manage and analyze these diverse datasets effectively.
+
+By implementing proper data monitoring and leveraging customer segmentation, this project aims to uncover actionable insights that drive our core objectives: enhancing buyer engagement and empowering sellers with tailored support. This strategic approach not only strengthens our connections with government buyers but also optimizes the overall performance of the marketplace.
+
+## Problem & Objectives
+
+### Problem Statement
+> **How can we leverage customer and seller segmentation to increase buyer engagement and boost seller revenue within the next 6 months?**
+
+### Objectives
+- **Enhance Buyer Relationships:** Develop targeted, personalized approaches to boost procurement and engagement.
+- **Empower Sellers:** Understand seller behavior and support their growth with optimized strategies.
+
+### Goals
+- **Evaluate** platform performance.
+- **Analyze** buyer and seller group dynamics.
+- **Propose** actionable strategies to enhance business outcomes.
+
+## Data Overview
+
+### Datasets
+- **df_order:** Contains order IDs, GMV, seller and buyer IDs, payment, and shipping details.
+- **df_order_complete:** Provides product-level order details.
+- **df_users:** Offers geographic and user type information.
+- **df_products:** Details product-level attributes (used during data preprocessing).
+
+### Key Metrics
+- **For Buyers:** GMV, Revenue, Orders, and Recency.
+- **For Sellers:** GMV, Revenue, Orders Fulfilled, and Unique Buyers.
+
+*Note: The data is a representative subset of the original dataset.*
+
+## Processing Steps
+
+1. **Data Cleaning & Merging:**
+   Integrated data from orders, order details, users, and products.
+2. **Data Preparation:**
+   - **Buyers:** Calculated total GMV, revenue, orders, average order value, unique categories, voucher usage, and recency.
+   - **Sellers:** Computed total GMV, revenue, orders fulfilled, unique buyers served, return rates, and recency.
+3. **Feature Engineering & Clustering:**
+   Applied K-Means clustering to segment both buyers and sellers.
+4. **Visualization:**
+   Developed performance charts to support the analysis.
+
+## Current Performance
+
+| Metric             | Value                         |
+|--------------------|-------------------------------|
+| **Total GMV**      | IDR 27,540,670,420,148         |
+| **Total Revenue**  | IDR 122,766,236,154            |
+| **Total Orders**   | 325,074                       |
+
+## Segmentation & Cluster Characteristics
+
+### Buyers
+
+| Cluster | Description                      | Avg Orders     | Avg     Order Value | Recency (days) | Voucher Usage |
+|---------|----------------------------------|----------------|---------------------|----------------|---------------|
+| **0**   | **High-Spending Regulars**       | **170.63**     | **18,840,121**      | **11.96**      | Minimal       |
+| 1       | Low-Spending Sporadic Buyers     | 5.09           | 216,786             | 196.22         | High          |
+| 2       | Moderate-Spending Dormant Buyers | 13.22          | 16,764,295          | 160.91         | None          |
+
+### Sellers
+
+| Cluster | Description                             | Avg     Orders | Avg Order Value     | Recency (days) | Unique Buyers |
+|---------|-----------------------------------------|----------------|---------------------|----------------|---------------|
+| 0       | Niche Low-Volume Sellers                | 10.67          | 73,988,206          | 155.78         | 1.66          |
+| **1**   | **High-Volume Established Sellers**     | **248.66**     | **52,172,932**      | **10.12**      | **7.07**      |
+| 2       | High-Potential Voucher-Dependent Sellers| 70.72          | 1,134,343           | 140.20         | 18.50         |
+
+
+## Insights & Recommendations
+
+### Buyer Insights
+- **Cluster 0:** High engagement with frequent, high-value orders.
+  *Recommendation:* Maintain engagement through loyalty programs.
+- **Cluster 1:** Reliance on vouchers with infrequent, low-value purchases.
+  *Recommendation:* Implement reactivation campaigns and targeted incentives.
+- **Cluster 2:** Occasional high spenders but less consistent engagement.
+  *Recommendation:* Use occasional high-value promotions to reengage these buyers.
+
+### Seller Insights
+- **Cluster 0:** Operate in niche segments with low volume yet high order values.
+  *Recommendation:* Provide growth-focused support to these sellers.
+- **Cluster 1:** Backbone of the marketplace with steady high-volume activity.
+  *Recommendation:* Continue fostering their growth with tailored promotions.
+- **Cluster 2:** High potential via voucher-dependent strategies.
+  *Recommendation:* Optimize marketing assistance and adjust voucher strategies.
+
+### General Marketplace Strategies
+- **Category-Specific Promotions:**
+  Prioritize growth in high-demand categories like Konveksi & Laundry, and explore opportunities in other segments.
+- **Regional Expansion:**
+  Replicate the success in Jakarta to other high-potential regions.
+- **Revenue Optimization:**
+  Maximize commission from high-demand categories while balancing operational costs.
+
+### Better Monitoring Strategies
+1. **Implement Tailored Marketing Campaigns:**
+   Utilize segmentation insights to create targeted campaigns.
+2. **Explore Alternative Clustering Methods:**
+   Consider other clustering techniques to better align with the data's characteristics.
+3. **Periodic Reassessment:**
+   Update the segmentation analysis regularly to stay aligned with evolving market trends.
+
+## Appendix
+
+- **Feature Correlation Matrix:** Visualizes relationships between key features.
+- **Elbow Analysis Diagram:** Determines the optimal number of clusters.
+- **Silhouette Analysis:** Assesses clustering performance with visual aids.
+- **Dataset Shapes:** Provides an overview of the data dimensions for both buyers and sellers.
+
+---
+
+**Project Link:** [PaDi UMKM](https://www.padiumkm.id/)
+**Milestone:** Virtual Internship by Ahmad Bukhari
+
+*Thank you for exploring this project!*

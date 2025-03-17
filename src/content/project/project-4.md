@@ -1,5 +1,5 @@
 ---
-title: "Project 4"
+title: "Project-4"
 subtitle: "A data-driven application project"
 image: "/images/Project_name.png"
 date: 2022-04-04T05:00:00Z
@@ -17,7 +17,7 @@ skills: ["nextjs", "tailwind"]
 colors:
   text: ""
   background: "bg-[#7A9A9C] dark:bg-[#506A6C]"
-draft: false
+draft: true
 ---
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.

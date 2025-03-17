@@ -1,7 +1,7 @@
 ---
 title: "IEP Project"
 subtitle: "Insights into Stock Management and Sales Trends"
-image: "/images/project/IEP-cover.png"
+image: "/images/project/IEP_cover.png"
 date: 2024-12-01T05:00:00+07:00
 description: "A detailed project to forecast demand for Q-cCommerce in August 2022, aimed at optimizing stock planning and ensuring customer satisfaction."
 author:
