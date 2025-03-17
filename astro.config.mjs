@@ -11,6 +11,7 @@ import sharp from "sharp";
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: true,
   output: "static",
   site: config.site.base_url
     ? config.site.base_url
