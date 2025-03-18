@@ -11,10 +11,6 @@ import {
   SiTableau,
 } from "react-icons/si";
 
-interface LanguageProps {
-  languages: string[];
-}
-
 // Mapping each language to its corresponding icon with official brand colors
 const languageIcons: Record<string, ReactElement> = {
   JavaScript: <SiJavascript style={{ color: "#F7DF1E" }} />, // JavaScript: #F7DF1E
@@ -29,8 +25,10 @@ const languageIcons: Record<string, ReactElement> = {
   Tableau: <SiTableau style={{ color: "#E97627" }} />, // Tableau: #E97627
 };
 
-const Languages: FC<LanguageProps> = ({ languages }) => {
-  if (languages.length === 0) return null;
+const Languages: FC<{ languages: string[] }> = ({ languages }) => {
+  if (!languages?.length) {
+    return <></>;
+  }
 
   return (
     <div className="flex flex-wrap justify-center gap-2 p-3">
