@@ -54,8 +54,9 @@ const { banner, features } = homepage.data as Homepage;
               <Button
                 label={banner.button.label},
                 link={banner.button.link},
-                showIcon={banner.button.showIcon},
+                target={banner.button.target},
                 fileName={banner.button.fileName? banner.button.fileName: undefined},
+                showIcon={banner.button.showIcon},
               />
             )
           }
@@ -111,8 +112,9 @@ const { banner, features } = homepage.data as Homepage;
                   <Button
                     label={feature.button.label},
                     link={feature.button.link},
-                    showIcon={feature.button.showIcon},
+                    target={feature.button.target},
                     fileName={feature.button.fileName? feature.button.fileName: undefined},
+                    showIcon={feature.button.showIcon}
                   />
                 )
               }

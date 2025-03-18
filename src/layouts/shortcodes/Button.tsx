@@ -9,11 +9,10 @@ import {
   FaFileExcel,
   FaFilePowerpoint,
   FaDownload,
+  FaFileImage,
 } from "react-icons/fa6";
 
-const getFileIcon = (fileName?: string) => {
-  if (!fileName) return FaDownload;
-
+const getFileIcon = (link: string, fileName?: string) => {
   // Extract file extension
   const fileIcons: Record<string, React.ElementType> = {
     pdf: FaFilePdf,
@@ -28,9 +27,15 @@ const getFileIcon = (fileName?: string) => {
     xlsx: FaFileExcel,
     ppt: FaFilePowerpoint,
     pptx: FaFilePowerpoint,
+    jpg: FaFileImage,
+    jpeg: FaFileImage,
+    png: FaFileImage,
+    gif: FaFileImage,
   };
 
-  const extension = fileName.split(".").pop()?.toLowerCase();
+  const extension =
+    fileName?.split(".").pop()?.toLowerCase() ||
+    link.split(".").pop()?.toLowerCase();
   return extension ? fileIcons[extension] || FaDownload : FaDownload;
 };
 
@@ -56,7 +61,7 @@ const Button = ({
     .join(" ")
     .trim();
 
-  const IconComponent = getFileIcon(fileName);
+  const IconComponent = getFileIcon(link, fileName);
 
   return (
     <a
