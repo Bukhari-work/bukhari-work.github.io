@@ -7,8 +7,9 @@ banner:
   button:
     enable: true
     label: "Resume"
-    link: "/Ahmad%20Bukhari%20CV.pdf"
-    fileName: "Ahmad Bukhari_CV.pdf"
+    link: "pdfs/Ahmad%20Bukhari_CV.pdf"
+    showIcon: true
+    target: "_blank"
 
 # Features
 features:

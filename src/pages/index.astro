@@ -5,7 +5,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import Testimonial from "@/partials/Testimonial.astro";
 import Button from "@/shortcodes/Button";
-import type { Button as ButtonType, Feature } from "@/types";
+import type { Button as ButtonProps, Feature } from "@/types";
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
 import { FaCheck } from "react-icons/fa6";
@@ -15,8 +15,8 @@ interface Homepage {
     title: string;
     content: string;
     image: string;
-    button: ButtonType;
-  };
+    button: ButtonProps;
+  }
   features: Feature[];
 }
 
@@ -54,6 +54,7 @@ const { banner, features } = homepage.data as Homepage;
               <Button
                 label={banner.button.label},
                 link={banner.button.link},
+                showIcon={banner.button.showIcon},
                 fileName={banner.button.fileName? banner.button.fileName: undefined},
               />
             )
@@ -110,6 +111,7 @@ const { banner, features } = homepage.data as Homepage;
                   <Button
                     label={feature.button.label},
                     link={feature.button.link},
+                    showIcon={feature.button.showIcon},
                     fileName={feature.button.fileName? feature.button.fileName: undefined},
                   />
                 )
