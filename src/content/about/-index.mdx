@@ -10,11 +10,13 @@ draft: false
 I'm a Jakarta-based data analyst with a passion for transforming raw data into actionable insights. My work spans data visualization, predictive modeling, and the integration of technology with business strategy.
 
 ### My journey
+
 <Tabs client:load>
   <Tab name="Journey">
     While earning my Bachelor's in Nuclear Engineering at UGM, I discovered that data held the key to solving complex challenges. This insight led me to explore data analytics more deeply—first through the everyday power of Excel and later by diving into more complex tools with RevoU in 2024.
 
     By 2025, after graduating from the RevoU Data Analytics Program, I had mastered the art of transforming raw data into actionable insights and compelling stories.
+
   </Tab>
   <Tab name="2023">
     ####  Getting My Degree
@@ -23,6 +25,7 @@ I'm a Jakarta-based data analyst with a passion for transforming raw data into a
     I quickly found myself relying on Excel not only for coursework but also for managing personal finances, organizing daily tasks, and even scheduling my time. This hands-on experience transformed Excel from a simple assignment helper into a powerful platform for deriving insights from raw data.
 
     The more I used it, the more I recognized its ability to reveal hidden patterns and streamline complex processes. This realization was a turning point, sparking my deep interest in data analytics and setting me on a journey to explore more sophisticated tools and techniques in the field.
+
   </Tab>
   <Tab name="2024">
     #### Transforming Into a Legit Data Analyst
@@ -33,22 +36,25 @@ I'm a Jakarta-based data analyst with a passion for transforming raw data into a
     One memorable project involved analyzing sales data to identify the effect of promotions on revenue. It required me to integrate multiple tools: querying databases with SQL, cleaning and processing data in Python, and finally visualizing the findings in a Tableau dashboard. This comprehensive experience not only sharpened my technical abilities but also honed my storytelling skills, as I learned to present complex insights in an accessible manner.
 
     The environment at RevoU was both rigorous and inspiring. The mentorship and peer collaboration provided a supportive backdrop that made every challenge an opportunity to learn. By the end of the program, I had not only acquired a robust toolkit of data analytics techniques but also a renewed confidence in my ability to transform raw data into actionable, strategic insights.
+
    </Tab>
 </Tabs>
 
 ### My Studies
+
 <Accordion client:load title="Bachelor's">
-  <a href="/project" aria-label="Bachelor of Nuclear Engineering" className="hover:text-gray-400 dark:hover:text-gray-400">Bachelor of Nuclear Engineering</a>
+  <a href="/project" aria-label="Bachelor of Nuclear Engineering">Bachelor of Nuclear Engineering</a>
   with a GPA of 3.56/4.00
 
-  I’m not one to measure intelligence solely by a GPA, though it does offer a glimpse into one’s level of dedication.
+I’m not one to measure intelligence solely by a GPA, though it does offer a glimpse into one’s level of dedication.
 
-  My 3.56 may not be a bragging right, but it reflects the grit needed in a field where every fraction matters. In nuclear engineering, the bar is set high for perfection, yet I tackled the inevitable challenges head-on—proving that consistent effort, one carefully crafted spreadsheet at a time, truly counts.
+My 3.56 may not be a bragging right, but it reflects the grit needed in a field where every fraction matters. In nuclear engineering, the bar is set high for perfection, yet I tackled the inevitable challenges head-on—proving that consistent effort, one carefully crafted spreadsheet at a time, truly counts.
+
 </Accordion>
 
 <Accordion client:load title="Certification">
-  <a open href="/Certificate%20of%20Proficiency.pdf" target="_blank" aria-label="RevoU Full-stack Data Analytics Certificate" className="hover:text-gray-400 dark:hover:text-gray-400">RevoU Full-stack Data Analytics</a> and
-  <a open href="/Certificate%20of%20Excellence.pdf" target="_blank" aria-label="RevoU NEXT Program Certificate" className="hover:text-gray-400 dark:hover:text-gray-400">RevoU NEXT Program</a>
+  <a open href="/Certificate%20of%20Proficiency.pdf" target="_blank" aria-label="RevoU Full-stack Data Analytics Certificate">RevoU Full-stack Data Analytics</a> and
+  <a open href="/Certificate%20of%20Excellence.pdf" target="_blank" aria-label="RevoU NEXT Program Certificate">RevoU NEXT Program</a>
 
 Certifications aren’t just about credentials — they’re proof of hands-on experience.
 
@@ -56,40 +62,58 @@ At RevoU, I worked with real-world datasets, applying Python, SQL, and advanced 
 
 </Accordion>
 
-import { FaDatabase } from 'react-icons/fa6';
-import { SiPython, SiTableau } from 'react-icons/si';
+import { FaDatabase } from "react-icons/fa6";
+import { SiPython, SiTableau } from "react-icons/si";
 
 ### My Main Toolkit
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-    {[
-      { Icon: SiPython, label: 'Python', desc: 'Analysing and visualising data.' },
-      { Icon: SiTableau, label: 'Tableau', desc: 'Designing dashboards to life.' },
-      { Icon: FaDatabase, label: 'SQL', desc: 'Extracting stories hidden in databases.' }
-    ].map(({ Icon, label, desc }) => (
-      <div key={label} className="text-primary dark:text-darkmode-primary flex flex-col items-center text-center p-4 border rounded-lg">
-        <Icon className="text-4xl mb-2" />
-        <h3 className="text-xl font-semibold">{label}</h3>
-        <p className="mt-1">{desc}</p>
-      </div>
-    ))}
-  </div>
----
- ## Beyond the Data
-  <p>When I'm not immersed in datasets, you'll find me:</p>
-  <ul className="list-disc pl-6 space-y-2 mt-2">
-    <li>Hitting the pavement on a refreshing jog,</li>
-    <li>Breaking the tires on a bike ride,</li>
-    <li>Watching movies, or</li>
-    <li>Reading detailed and immersive (yet sometimes dumb) novels.</li>
-  </ul>
+
+{" "}
+
+<div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+  {[
+    {
+      Icon: SiPython,
+      label: "Python",
+      desc: "Analysing and visualising data.",
+    },
+    {
+      Icon: SiTableau,
+      label: "Tableau",
+      desc: "Designing dashboards to life.",
+    },
+    {
+      Icon: FaDatabase,
+      label: "SQL",
+      desc: "Extracting stories hidden in databases.",
+    },
+  ].map(({ Icon, label, desc }) => (
+    <div
+      key={label}
+      className="text-primary dark:text-darkmode-primary flex flex-col items-center text-center p-4 border rounded-lg"
+    >
+      <Icon className="text-4xl mb-2" />
+      <h3 className="text-xl font-semibold">{label}</h3>
+      <p className="mt-1">{desc}</p>
+    </div>
+  ))}
+</div>
+--- ## Beyond the Data
+<p>When I'm not immersed in datasets, you'll find me:</p>
+<ul className="list-disc pl-6 space-y-2 mt-2">
+  <li>Hitting the pavement on a refreshing jog,</li>
+  <li>Breaking the tires on a bike ride,</li>
+  <li>Watching movies, or</li>
+  <li>Reading detailed and immersive (yet sometimes dumb) novels.</li>
+</ul>
 
 ---
+
 <div className="my-12 text-center">
   <h2 className="text-2xl font-bold mb-4">Let's Collaborate!</h2>
   <p>
-    Ready to turn your data into decisions?{' '}
-    <a href="/project" className="hover:text-gray-400 dark:hover:text-gray-400">Explore my projects</a> or{' '}
-    <a href="/contact" className="hover:text-gray-400 dark:hover:text-gray-400">drop me a message</a>
+    Ready to turn your data into decisions?{" "}
+    <a href="/project">Explore my projects</a> or{" "}
+    <a href="/contact">drop me a message</a>
     to start a conversation!
   </p>
 </div>
