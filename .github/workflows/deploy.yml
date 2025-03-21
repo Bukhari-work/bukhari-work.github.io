@@ -18,9 +18,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install, build, and upload your site
+
+      # 1. Explicitly set up Node.js (Corepack is included in Node ≥16.9)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x # Required for Corepack
+
+      # 2. Enable Corepack to manage Yarn version
+      - name: Enable Corepack
+        run: corepack enable
+
+      # 3. Ensure Yarn 4.7.0 is activated (matches the one in package.json)
+      - name: Prepare Yarn 4.7.0
+        run: corepack prepare yarn@4.7.0 --activate
+
+      # 4. Now run the Astro action (it'll use Yarn 4.7.0)
+      - name: Install, build, and upload site
         uses: withastro/action@v3
         # with:
         # path: . # The root location of your Astro project inside the repository. (optional)
