@@ -45,9 +45,6 @@ const { title, description, meta_title, image } = contact.data;
             method="POST"
             data-contact-url={config.params.contact_form_url}
           >
-            <div class="hidden" aria-hidden="true">
-              <input type="checkbox" name="botcheck" class="hidden" />
-            </div>
             <div class="mb-6">
               <label for="name" class="form-label">
                 Full Name <span class="text-red-500">*</span>
@@ -58,7 +55,19 @@ const { title, description, meta_title, image } = contact.data;
                 class="form-input"
                 placeholder="Budi Susanti"
                 type="text"
+                autocomplete="name"
                 required
+              />
+            </div>
+            <div class="hidden mb-6" aria-hidden="true">
+              <label for="website" class="form-label">Website</label>
+              <input
+                id="website"
+                name="website"
+                class="form-input"
+                placeholder="bukhari-work.github.io"
+                type="text"
+                autocomplete="off"
               />
             </div>
             <div class="mb-6">
@@ -71,6 +80,7 @@ const { title, description, meta_title, image } = contact.data;
                 class="form-input"
                 placeholder="budi.susanti@email.com"
                 type="email"
+                autocomplete="email"
                 required
               />
             </div>
@@ -96,7 +106,35 @@ const { title, description, meta_title, image } = contact.data;
   </section>
 </Base>
 
+<style>
+  .is-invalid {
+    @apply border-red-500;
+  }
+
+  input:focus,
+  textarea:focus {
+    @apply outline-none ring-1 ring-blue-500;
+  }
+
+  .is-invalid:focus {
+    @apply outline-none ring-1 ring-red-500;
+  }
+</style>
+
 <script is:inline>
+  const validateField = (field) => {
+    const isValid = field.checkValidity();
+    field.classList.toggle("is-invalid", !isValid);
+  };
+
+  document
+    .querySelectorAll("input[required], textarea[required]")
+    .forEach((field) => {
+      // Validate on user interaction
+      field.addEventListener("input", () => validateField(field));
+      field.addEventListener("blur", () => validateField(field));
+    });
+
   document
     .getElementById("contactForm")
     .addEventListener("submit", async (e) => {
@@ -107,11 +145,8 @@ const { title, description, meta_title, image } = contact.data;
       const successMessage = document.getElementById("successMessage");
       const url = form.dataset.contactUrl;
 
-      // Honeypot check
-      if (form.botcheck.checked) {
-        alert("Bot detected!");
-        return;
-      }
+      const website = form.website.value.trim();
+      if (website) return;
 
       // Ensure grecaptcha is loaded before executing
       if (typeof grecaptcha === "undefined" || !grecaptcha) {
