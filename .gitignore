@@ -2,7 +2,6 @@
 dist/
 .output/
 .json/
-.yarn/
 
 # dependencies
 node_modules/
@@ -23,3 +22,12 @@ package-lock.json
 
 # ignore .astro directory
 .astro
+
+# ignore (or don't ignore) yarn related file/folders
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
