@@ -110,6 +110,11 @@ const contactCollection = defineCollection({
     meta_title: z.string().optional(),
     description: z.string().optional(),
     image: z.string().optional(),
+    content: z.object({
+      messageTitle: z.string(),
+      message: z.string(),
+      messageTwo: z.string().optional(),
+    }),
     draft: z.boolean().optional(),
   }),
 });
