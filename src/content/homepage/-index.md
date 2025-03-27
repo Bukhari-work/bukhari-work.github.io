@@ -2,7 +2,7 @@
 # Banner
 banner:
   title: "Transforming Data into Actionable Insights"
-  content: "Welcome to my portfolio! I’m Bukhari, a data analyst passionate about turning complex data into actionable insights. With expertise in Python, SQL, and Tableau, I help businesses make confident, data-driven decisions." 
+  content: "Welcome to my portfolio! I’m Bukhari, a data analyst passionate about turning complex data into actionable insights. With expertise in Python, SQL, and Tableau, I help businesses make confident, data-driven decisions."
   image: "/images/banner.png"
   button:
     enable: true

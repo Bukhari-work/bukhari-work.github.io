@@ -10,10 +10,11 @@ author:
 company: "RevoU"
 metadata:
   hours: "20hrs"
-  type:  "Solo"
-  size:  "120k+ rows"
+  type: "Solo"
+  size: "120k+ rows"
 status: "Done"
-skills: ["Python", "Tableau", "Data Analysis", "A/B Testing", "Data Visualization"]
+skills:
+  ["Python", "Tableau", "Data Analysis", "A/B Testing", "Data Visualization"]
 colors:
   text: ""
   background: "bg-[#FF9900] dark:bg-[#232F3E]"
@@ -21,13 +22,17 @@ draft: false
 ---
 
 # E-Commerce Promotion Analysis
+
 This project not only showcases my analytical skills but also demonstrates my ability to leverage tools like Python for A/B testing and Tableau to drive actionable insights in the e-commerce landscape.
 
 ## Overview
+
 The DEEPP Project focuses on evaluating and optimizing promotional strategies for an E-commerce's Clothing Department. By leveraging advanced analytical tools such as Python and Tableau, the project delivers actionable insights aimed at enhancing sales performance, refining product category strategies, and improving order fulfilment efficiency.
 
 ## Project Background
+
 The Clothing Department has faced challenges with consistent sales growth despite various promotional efforts. To address these challenges, this project was designed to:
+
 - **Analyze Regional Sales Dynamics:** Identify high-performing markets, such as Maharashtra and Karnataka, and assess the potential in under-tapped regions.
 - **Evaluate Product Category Performance:** Examine key product categories like ‘Set’ and ‘Kurta’, and explore opportunities in emerging segments such as ‘Saree’.
 - **Address Operational Challenges:** Investigate issues related to order cancellations and returns that impact overall profitability.
@@ -35,7 +40,9 @@ The Clothing Department has faced challenges with consistent sales growth despit
 ## Problem & Objectives
 
 ### Problem Statement
+
 Despite active promotional campaigns, several challenges remain:
+
 - **Inconsistent Sales Growth:** Sales are not uniformly increasing across all regions.
 - **Ineffective Promotional Impact:** Certain promotional strategies do not translate into substantial order volume increases.
 - **Fulfilment Inefficiencies:** A considerable number of orders are subject to cancellations or returns, thereby affecting profitability.
@@ -43,12 +50,14 @@ Despite active promotional campaigns, several challenges remain:
 > **How can the Clothing Department increase sales by about 10% in the next quarter?**
 
 ### Objectives
+
 - **Assess Promotional Impact:** Measure how promotions affect order volume and average order value.
 - **Identify High-Potential Regions:** Use regional insights to create targeted marketing strategies.
 - **Optimize Promo Frequency:** Find the ideal number of promotions per order to maximize customer engagement without increasing cancellations.
 - **Enhance Data Collection:** Improve tracking and customer data collection to support deeper analysis in future projects.
 
 ## Data & Methodology
+
 The analysis is based on a comprehensive dataset comprising order-level sales data from the Clothing Department during key promotional periods. The methodology includes:
 
 - **Data Collection & Cleaning:**
@@ -61,14 +70,17 @@ The analysis is based on a comprehensive dataset comprising order-level sales da
   Implementation of A/B testing by segregating orders into control (non-promo) and treatment (promo) groups. Analysis revealed a significant increase in the Average Order Value for promotional orders (671.28) compared to non-promotional orders (508.78), confirming the effectiveness of the promotional strategies.
 
 ## Key Insights & Findings
+
 - **Promotional Impact:**
   Promotional activities are a critical driver of sales, emphasizing the importance of targeted and well-structured promotional strategies.
 
 - **Regional Performance:**
+
   - **Top-Performing Regions:** Maharashtra and Karnataka have emerged as leading markets.
   - **Growth Opportunities:** Regions with substantial population densities, such as Bihar, West Bengal, and Gujarat, demonstrate significant untapped potential.
 
 - **Product Category Trends:**
+
   - **Market Leaders:** ‘Set’ and ‘Kurta’ remain the most popular categories.
   - **Opportunities for Expansion:** Enhanced promotional efforts for the ‘Set’ category could further boost sales, while exploring niche segments like ‘Saree’ may unlock new market opportunities.
 
@@ -76,7 +88,9 @@ The analysis is based on a comprehensive dataset comprising order-level sales da
   Analysis suggests that a single promotional offer per order yields the best balance between driving sales and reducing cancellations. Orders with multiple promotions tend to experience higher rates of cancellations and returns.
 
 ## Recommendations
+
 Based on the analysis, the following recommendations are proposed:
+
 - **Implement Targeted Regional Campaigns:**
   Allocate resources to high-performing regions while designing specific strategies to tap into under-performing, yet populous, areas.
 
@@ -90,16 +104,26 @@ Based on the analysis, the following recommendations are proposed:
   Improve data tracking by incorporating customer identifiers and comprehensive shipment tracking to facilitate more personalized marketing strategies and more robust future analyses.
 
 ## Visualizations & Tools
+
 An interactive Tableau dashboard was developed to provide real-time insights into:
+
 - Regional sales trends.
 - The impact of promotional activities.
 - Product category performance.
 
 ## Conclusion
+
 The DEEPP Project exemplifies a data-driven approach to overcoming sales challenges in a competitive e-commerce landscape. By optimizing promotional strategies, targeting high-potential regions, and refining product category initiatives, this project outlines a clear pathway to achieving a 10% increase in sales in the upcoming quarter. This analysis underscores the importance of strategic data utilization and demonstrates the effective application of analytical tools to drive business growth.
 
-import TableauEmbed from '@/layouts/helpers/TableauEmbed.astro';
+import TableauEmbed from "@/layouts/helpers/TableauEmbed.astro";
 
 ## The Tableau Dashboards
-<TableauEmbed/>
-Please refresh if the dashboard is not shown or view the original dashboard on <a href="https://public.tableau.com/views/DEEPP_17251231861900/MainDash?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener noreferrer">Tableau</a>
+
+<TableauEmbed />
+Please refresh if the dashboard is not shown or view the original dashboard on <a
+  href="https://public.tableau.com/views/DEEPP_17251231861900/MainDash?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Tableau
+</a>
