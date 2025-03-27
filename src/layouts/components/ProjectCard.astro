@@ -34,7 +34,7 @@ interface Data {
   };
 }
 
-const { data, asHeader = false} = Astro.props;
+const { data, asHeader = false } = Astro.props;
 
 const {
   title,
@@ -55,9 +55,9 @@ const {
   project_folder,
 }: { summary_length: number; project_folder: string } = config.settings;
 
-const MainTag = asHeader ? 'section' : 'a';
-const SubTag = asHeader ? 'header' : 'article';
-const HeadingTag = asHeader? 'div' : 'header';
+const MainTag = asHeader ? "section" : "a";
+const SubTag = asHeader ? "header" : "article";
+const HeadingTag = asHeader ? "div" : "header";
 ---
 
 <MainTag
@@ -69,116 +69,127 @@ const HeadingTag = asHeader? 'div' : 'header';
   ]}
   transition:name={`card ${data.id} core`}
 >
-<SubTag>
-  <!-- card background -->
-  <div
-    class:list={["absolute inset-1 rounded-3xl h-full", colors.background]}
-  >
-  </div>
-  {
-    asHeader && (
-    <!-- card back arrow -->
-    <a
-      title={"Back to project page"}
-      href={`/${project_folder}`}
-      transition:animate={slide({ duration: "0.5s" })}
-      class="absolute left-4 top-5 z-10 flex h-8 items-center rounded-lg px-2
+  <SubTag>
+    <!-- card background -->
+    <div
+      class:list={["absolute inset-1 rounded-3xl h-full", colors.background]}
+    >
+    </div>
+    {
+      asHeader && (
+        <>
+          {/* card back arrow */}
+          <a
+            title={"Back to project page"}
+            href={`/${project_folder}`}
+            transition:animate={slide({ duration: "0.5s" })}
+            class="absolute left-4 top-5 z-10 flex h-8 items-center rounded-lg px-2
       focus-visible:outline-inherit focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-orange
       active:bg-shark-active"
-    >
-      <span class="sr-only">Go Back</span>
-      <svg
-        class="size-6"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z"
-          fill="currentColor"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-        >
-        </path>
-      </svg>
-    </a>
-    )
-  }
-  <!-- card avatar, title, metadata, and description -->
-  <HeadingTag
-  class:list={[
+          >
+            <span class="sr-only">Go Back</span>
+            <svg
+              class="size-6"
+              viewBox="0 0 15 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </>
+      )
+    }
+    <!-- card avatar, title, metadata, and description -->
+    <HeadingTag
+      class:list={[
         "relative flex flex-col p-8 pb-0",
         asHeader
           ? "mx-auto max-w-6xl items-center justify-between gap-8"
-          : "gap-6 h-[20rem]"
+          : "gap-6 h-[20rem]",
       ]}
-  >
-    <!-- avatar and + button -->
-    <div class:list={["relative", !asHeader && "flex items-center justify-between gap-4"]}>
-      <Avatar
-        author={author}
-        postDate={date}
-        resolution={200}
-        slug={data.id}
-        loading="eager"
-        isStacked={asHeader ? true: undefined}
-      />
-      <button
-      class:list={[
-        "flex items-center justify-center rounded-full",
-        "bg-black text-border dark:bg-white dark:text-darkmode-border",
-        "focus-visible:outline-inherit focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-orange",
-        asHeader
-            ? "size-5 absolute bottom-0 right-0 top-0 mx-auto -translate-x-1.5 translate-y-5"
-            : "size-7"
-      ]}
-        transition:name={`card ${data.id} add`}
-        ><svg
-          class={asHeader ? "size-3" : "size-5"}
-          viewBox="0 0 15 15"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          ><path
-            d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z"
-            fill="currentColor"
-            fill-rule="evenodd"
-            clip-rule="evenodd"></path></svg
-        ></button
-      >
-    </div>
-
-    <!-- title, subtitle, and meta -->
-    <div class={`flex flex-col gap-4 text-center my-auto`}>
-      <!-- title and subtitle -->
+    >
+      <!-- avatar and + button -->
       <div
-        class="text-balance flex flex-col gap-4"
-        transition:name={`card ${data.id} heading`}
+        class:list={[
+          "relative",
+          !asHeader && "flex items-center justify-between gap-4",
+        ]}
       >
-      <h1 class={`relative text-3xl font-tertiary inline-flex items-center ${colors.text}`}>
-          <span class="absolute -top-[0.25em] -left-[0.5em]">「</span>
-          <span class="mx-auto">{title}</span>
-          <span class="absolute -bottom-[0.25em] -right-[0.5em]">」</span>
-      </h1>
-      {asHeader && (
-        <h2 class={`text-sm font-tertiary ${colors.text}`}>
-          {subtitle}
-        </h2>
-        )
-      }
-      <!-- meta -->
+        <Avatar
+          author={author}
+          postDate={date}
+          resolution={200}
+          slug={data.id}
+          loading="eager"
+          isStacked={asHeader ? true : undefined}
+        />
+        <button
+          class:list={[
+            "flex items-center justify-center rounded-full",
+            "bg-black text-border dark:bg-white dark:text-darkmode-border",
+            "focus-visible:outline-inherit focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-orange",
+            asHeader
+              ? "size-5 absolute bottom-0 right-0 top-0 mx-auto -translate-x-1.5 translate-y-5"
+              : "size-7",
+          ]}
+          transition:name={`card ${data.id} add`}
+          ><svg
+            class={asHeader ? "size-3" : "size-5"}
+            viewBox="0 0 15 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+              clip-rule="evenodd"></path></svg
+          ></button
+        >
       </div>
-      {asHeader && (
-        <>
-          {metadata && <Metadata metadata={metadata} font="tertiary" class="mt-2"/>}
-          {description && (
-            <p class="text-sm mx-0 font-tertiary" transition:animate="fade">
-              {description}
-            </p>
-          )}
-        </>
-      )}
-    </div>
-  </HeadingTag>
+
+      <!-- title, subtitle, and meta -->
+      <div class={`flex flex-col gap-4 text-center my-auto`}>
+        <!-- title and subtitle -->
+        <div
+          class="text-balance flex flex-col gap-4"
+          transition:name={`card ${data.id} heading`}
+        >
+          <h1
+            class={`relative text-3xl font-tertiary inline-flex items-center ${colors.text}`}
+          >
+            <span class="absolute -top-[0.25em] -left-[0.5em]">「</span>
+            <span class="mx-auto">{title}</span>
+            <span class="absolute -bottom-[0.25em] -right-[0.5em]">」</span>
+          </h1>
+          {
+            asHeader && (
+              <h2 class={`text-sm font-tertiary ${colors.text}`}>{subtitle}</h2>
+            )
+          }
+          <!-- meta -->
+        </div>
+        {
+          asHeader && (
+            <>
+              {metadata && (
+                <Metadata metadata={metadata} font="tertiary" class="mt-2" />
+              )}
+              {description && (
+                <p class="text-sm mx-0 font-tertiary" transition:animate="fade">
+                  {description}
+                </p>
+              )}
+            </>
+          )
+        }
+      </div>
+    </HeadingTag>
   </SubTag>
 
   <!-- card image -->

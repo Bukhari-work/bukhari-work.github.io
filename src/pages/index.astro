@@ -16,7 +16,7 @@ interface Homepage {
     content: string;
     image: string;
     button: ButtonProps;
-  }
+  };
   features: Feature[];
 }
 
@@ -52,11 +52,13 @@ const { banner, features } = homepage.data as Homepage;
           {
             banner.button.enable && (
               <Button
-                label={banner.button.label},
-                link={banner.button.link},
-                target={banner.button.target},
-                fileName={banner.button.fileName? banner.button.fileName: undefined},
-                showIcon={banner.button.showIcon},
+                label={banner.button.label}
+                link={banner.button.link}
+                target={banner.button.target}
+                fileName={
+                  banner.button.fileName ? banner.button.fileName : undefined
+                }
+                showIcon={banner.button.showIcon}
               />
             )
           }
@@ -107,17 +109,19 @@ const { banner, features } = homepage.data as Homepage;
                   </li>
                 ))}
               </ul>
-              {
-                feature.button.enable && (
-                  <Button
-                    label={feature.button.label},
-                    link={feature.button.link},
-                    target={feature.button.target},
-                    fileName={feature.button.fileName? feature.button.fileName: undefined},
-                    showIcon={feature.button.showIcon}
-                  />
-                )
-              }
+              {feature.button.enable && (
+                <Button
+                  label={feature.button.label}
+                  link={feature.button.link}
+                  target={feature.button.target}
+                  fileName={
+                    feature.button.fileName
+                      ? feature.button.fileName
+                      : undefined
+                  }
+                  showIcon={feature.button.showIcon}
+                />
+              )}
             </div>
           </div>
         </div>

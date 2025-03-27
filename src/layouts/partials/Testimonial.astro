@@ -12,9 +12,12 @@ const { testimonial } = Astro.props;
           <div class="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">
             <h2 set:html={markdownify(testimonial.data.title)} class="mb-4" />
             <p set:html={markdownify(testimonial.data.description)} />
-            {testimonial.data.descriptionAddition && testimonial.data.descriptionAddition.length > 0  &&(
-            <br />
-            <p set:html={markdownify(testimonial.data.descriptionAddition)} />)}
+            {testimonial.data.descriptionAddition &&
+              testimonial.data.descriptionAddition.length > 0 && (
+                <p
+                  set:html={markdownify(testimonial.data.descriptionAddition)}
+                />
+              )}
           </div>
           <div class="col-12">
             <div class="swiper testimonial-slider">
@@ -47,7 +50,12 @@ const { testimonial } = Astro.props;
                           class="mt-8"
                           set:html={markdownify(item.content)}
                         />
-                        <a href={`${item.link}`} target="_blank" rel="noopener noreferrer" class="mt-11 flex items-center">
+                        <a
+                          href={`${item.link}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="mt-11 flex items-center"
+                        >
                           <div class="text-dark dark:text-white">
                             <ImageMod
                               height={50}
